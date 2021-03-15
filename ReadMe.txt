@@ -1,5 +1,8 @@
-Kristiesu repo
-kaka
+public class BurtuJuklis {
 
-Lila kaka
-Mārtiņš Dievs 😎
+    
+    public static void main(String[] args) {
+        
+    }
+    
+}
