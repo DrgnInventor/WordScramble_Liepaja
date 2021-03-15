@@ -1,4 +1,2 @@
 Kristiesu repo
-bruh
-bruh
-nuts
+kaka
