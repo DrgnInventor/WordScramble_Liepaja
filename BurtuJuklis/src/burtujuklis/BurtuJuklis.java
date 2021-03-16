@@ -1,6 +1,7 @@
 
 package burtujuklis;
 
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -13,8 +14,8 @@ public class BurtuJuklis {
     private String [] burti;
     private int lielums;
 public BurtuJuklis(){
-    lielums = 40;
-    
+    lielums = 20;
+    burtuJuklis = new String[lielums][lielums];
 }
 public String[] atseviskieBurti(String s){
    
@@ -35,6 +36,7 @@ public String[] atseviskieBurti(String s){
 
 public boolean vaiVardsDer(int virziens_p, int kolona, int rinda){ 
 //parbauda vai vards ielien burtu juklis masiva un vai tur ir brivas ailites
+this.burtuJuklis = burtuJuklis;
 boolean tr = false;    
     switch(virziens_p){
         case 0:
@@ -74,9 +76,7 @@ public void rezgaBuvesana(){
     String[] vardiMasiva = {
             "v a r d s ","c i t s-v a r d s ","d a r t a-i r-s t i l i g a "
     };
-    
-    burtuJuklis = new String[lielums][lielums];
-    
+    burtuJuklis = this.burtuJuklis;
     String[] burtiMasiva;
     Random r = new Random();
     for(int i = 0; i < vardiMasiva.length; i ++){
@@ -112,9 +112,14 @@ public void rezgaBuvesana(){
     public static void main(String[] args) {
         BurtuJuklis bj = new BurtuJuklis();
         int liel = bj.lielums;
-        for(int i = 0; i < liel; i++){
-            System.out.println(bj.burtuJuklis[i]);
-        }
+        String brtj[][] = bj.burtuJuklis;
+        brtj[0][0] = "darta";
+        // Loop through all rows
+        for (String[] row : brtj)
+ 
+            // converting each row as string
+            // and then printing in a separate line
+            System.out.println(Arrays.toString(row));
         System.out.print((int)(Math.random()*(20) + 1));
     }
     
