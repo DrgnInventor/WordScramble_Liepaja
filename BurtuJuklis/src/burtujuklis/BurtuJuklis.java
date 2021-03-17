@@ -19,7 +19,7 @@ public BurtuJuklis(){
 }
 public String[] atseviskieBurti(String s){
    
-    burti = new String[s.length()];
+    burti = new String[s.length()/2];
     int k = 0;
     for (int j = 0; j < s.length(); j++) {//cikls, lai sadalitu vārdu pa burtiem
        
@@ -29,20 +29,21 @@ public String[] atseviskieBurti(String s){
         } else {
             burts = s.substring(j); //lai neiet string out of bounds
         }
-        burti[k] = burts;       
+        burti[k] = burts;  
+        k = k +1;
 }
     return burti; //masivs ar atseviskiem burtiem + atstarpem    
 }
 
-public boolean vaiVardsDer(int virziens_p, int kolona, int rinda){ 
+public boolean vaiVardsDer(int garums,int virziens_p, int kolona, int rinda){ 
 //parbauda vai vards ielien burtu juklis masiva un vai tur ir brivas ailites
-this.burtuJuklis = burtuJuklis;
-boolean tr = false;    
+
+boolean tr = true;    
     switch(virziens_p){
         case 0:
        //horizontali
-            if(lielums - kolona >= burti.length){
-                for(int i = 0; i < burti.length; i++){
+            if(lielums - kolona >= garums){
+                for(int i = 0; i < garums; i++){
                     if(burtuJuklis[kolona][rinda + i].isEmpty()){
                         tr = true;
                     }else break;
@@ -51,8 +52,8 @@ boolean tr = false;
         break;
         case 1:
         //vertikali
-            if(lielums - rinda >= burti.length){
-                for(int i = 0; i < burti.length; i++){
+            if(lielums - rinda >= garums){
+                for(int i = 0; i < garums; i++){
                     if(burtuJuklis[kolona + i][rinda].isEmpty()){
                         tr = true;
                     }else break;
@@ -61,8 +62,8 @@ boolean tr = false;
         break;
         case 2:
         //diagonali
-            if(rinda + burti.length <= lielums){
-            for(int i = 0; i < burti.length; i++){
+            if(rinda + garums <= lielums){
+            for(int i = 0; i < garums; i++){
                 if(burtuJuklis[kolona + i][rinda + i].isEmpty()){
                     tr = true;
                 }else break;
@@ -72,11 +73,8 @@ boolean tr = false;
     if(tr == true)return true;
     else return false;
 }
-public void rezgaBuvesana(){
-    String[] vardiMasiva = {
-            "v a r d s ","c i t s-v a r d s ","d a r t a-i r-s t i l i g a "
-    };
-    burtuJuklis = this.burtuJuklis;
+public void rezgaBuvesana(String [] vardiMasiva){
+    
     String[] burtiMasiva;
     Random r = new Random();
     for(int i = 0; i < vardiMasiva.length; i ++){
@@ -87,7 +85,7 @@ public void rezgaBuvesana(){
         for(int j = 0; j < burtiMasiva.length; j++){
             burts = burtiMasiva[j];
            
-                if(vaiVardsDer(virziens, lauks_kolona, lauks_rinda) == true){
+                if(vaiVardsDer(burtiMasiva.length, virziens, lauks_kolona, lauks_rinda) == true){
                     if(virziens == 0){
                         burtuJuklis[lauks_kolona][lauks_rinda + j] = burts;
                     } else if(virziens == 1){
@@ -114,13 +112,17 @@ public void rezgaBuvesana(){
         int liel = bj.lielums;
         String brtj[][] = bj.burtuJuklis;
         brtj[0][0] = "darta";
-        // Loop through all rows
-        for (String[] row : brtj)
- 
-            // converting each row as string
-            // and then printing in a separate line
-            System.out.println(Arrays.toString(row));
-        System.out.print((int)(Math.random()*(20) + 1));
+        String[] vm = {
+            "v a r d s ","c i t s-v a r d s ","d a r t a-i r-s t i l i g a "
+    };
+        System.out.println(Arrays.toString(bj.atseviskieBurti("k a k a ")));
+        System.out.println(bj.vaiVardsDer(5, 0, 6, 1));
+        for (int i = 0; i < brtj.length; ++i) { 
+            
+                //bj.rezgaBuvesana(vm);
+                System.out.println(Arrays.toString(brtj[i]));
+            
+        }
     }
     
 }
