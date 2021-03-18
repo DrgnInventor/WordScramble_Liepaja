@@ -116,21 +116,12 @@ public void rezgaBuvesana(String [] vardiMasiva){ //izveido koordinates vardiem 
         int liel = bj.lielums;
         char brtj[][] = bj.burtuJuklis;
         String[] vm = {
-            "VARDS","CITS-VARDS","DARTA-IR-STILIGA","SUDS","DABAS-MAJA"
+            "VARDS","CITS-VARDS","DARTA-IR-STILIGA","SUDS","DABAS-MAJA","LIEPAJA","CIMDI","JUKLIS"
         }; 
         bj.rezgaBuvesana(vm);
-//        for(int i = 0; i < vm.length; i++){
-//            char [] atsb = bj.atseviskieBurti(vm[i]);
-//            bj.varduLiksana(atsb, 2, 4, 2);
         for (int j = 0; j < brtj.length; j++) { 
             System.out.println(Arrays.toString(brtj[j]));
-        }
-//        }
-        System.out.println(Arrays.toString(bj.atseviskieBurti("kaka")));
-        System.out.println(bj.vaiVardsDer(5, 1, liel, liel));
-        System.out.println(bj.vaiVardsDer(5, 0, 0, 0)); 
-        
-        
+        }    
     }
     
 }
