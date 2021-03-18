@@ -91,11 +91,11 @@ public void varduLiksana(char[] burtiMasiva, int virziens, int lauks_rinda, int 
 public void rezgaBuvesana(String [] vardiMasiva){ //izveido koordinates vardiem un saliek rezgi
     char[] burtiMasiva;
     Random r = new Random();
-    for(int i = 0; i < vardiMasiva.length; i ++){
+    for(int i = 0; i < vardiMasiva.length; i++){
         burtiMasiva = atseviskieBurti(vardiMasiva[i]); 
         int virziens = r.nextInt(3);
-        int lauks_kolona = (int)(Math.random()*(lielums) + 1); 
-        int lauks_rinda = (int)(Math.random()*(lielums) + 1);
+        int lauks_kolona = (int)(Math.random()*(lielums - 1) + 1); 
+        int lauks_rinda = (int)(Math.random()*(lielums - 1) + 1);
         if(vaiVardsDer(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona)){
             varduLiksana(burtiMasiva, virziens, lauks_rinda, lauks_kolona);
         }else{
@@ -109,7 +109,6 @@ public void rezgaBuvesana(String [] vardiMasiva){ //izveido koordinates vardiem 
                 }
             }
         }
-
 }
     public static void main(String[] args) {
         BurtuJuklis bj = new BurtuJuklis(20);
@@ -117,7 +116,8 @@ public void rezgaBuvesana(String [] vardiMasiva){ //izveido koordinates vardiem 
         char brtj[][] = bj.burtuJuklis;
         String[] vm = {
             "VARDS","CITS-VARDS","DARTA-IR-STILIGA","SUDS","DABAS-MAJA","LIEPAJA","CIMDI","JUKLIS"
-        }; 
+        };
+        
         bj.rezgaBuvesana(vm);
         for (int j = 0; j < brtj.length; j++) { 
             System.out.println(Arrays.toString(brtj[j]));
