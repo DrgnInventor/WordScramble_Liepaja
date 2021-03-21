@@ -5,12 +5,13 @@ import java.util.Scanner;
 
 public class Lasitajs {
 
-    static ArrayList<String> vardiLst = new ArrayList<>(); // ArrayList ar vardiniem kas tiks apstradati
-  
+    private ArrayList<String> vardiLst = new ArrayList<>(); // ArrayList ar vardiniem kas tiks apstradati
+
     public static void main(String[] args) {
-      lasiVardus();
+      Lasitajs ls = new Lasitajs();
+      ls.lasiVardus();
     }
-    public static void lasiVardus() {
+    public void lasiVardus() {
       try {
         File Dotie_Vārdi = new File("Dotie_Vārdi.txt"); // atver
         Scanner Lasītājs = new Scanner(Dotie_Vārdi);
@@ -20,6 +21,10 @@ public class Lasitajs {
         Lasītājs.close();
       } catch (FileNotFoundException e) {
         System.out.println("brrrr kods aizgaja kakaa"); // parbauda vai ir file
+      }
+      String[] vardi = new String(vardiLst.size());
+      for (int pauls = 0; pauls < vardiLst.size(); pauls++){
+        vardi[pauls] = vardiLst.get(pauls);
       }
     }
   }
