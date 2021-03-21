@@ -11,7 +11,7 @@ public class Lasitajs {
     public static void main(String[] args) {
       lasiVardus();
     }
-    public static Object[] lasiVardus() {
+    public static void lasiVardus() {
       try {
         File Dotie_Vārdi = new File("Dotie_Vārdi.txt"); // atver
         Scanner Lasītājs = new Scanner(Dotie_Vārdi);
