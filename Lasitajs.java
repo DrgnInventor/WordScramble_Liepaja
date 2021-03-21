@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Lasitajs {
 
     static ArrayList<String> vardiLst = new ArrayList<>(); // ArrayList ar vardiniem kas tiks apstradati
-    static Object[] vardi;
   
     public static void main(String[] args) {
       lasiVardus();
@@ -22,6 +21,5 @@ public class Lasitajs {
       } catch (FileNotFoundException e) {
         System.out.println("brrrr kods aizgaja kakaa"); // parbauda vai ir file
       }
-      vardi = vardiLst.toArray();
     }
   }
