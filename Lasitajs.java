@@ -17,7 +17,7 @@ public class Lasitajs {
         File Dotie_Vārdi = new File("Dotie_Vārdi.txt"); // atver
         Scanner Lasītājs = new Scanner(Dotie_Vārdi);
         while (Lasītājs.hasNextLine()) {
-          vardiLst.add(Lasītājs.nextLine()); //lasa text
+          vardiLst.add((Lasītājs.nextLine()).toLowerCase()); //lasa text
         }
         Lasītājs.close();
       } catch (FileNotFoundException e) {

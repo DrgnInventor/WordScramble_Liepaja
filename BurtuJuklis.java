@@ -1,7 +1,7 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class BurtuJuklis {
+    public char[] abcdburti = {'a','ā','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž', '-'};
     private char[][] burtuJuklis; //masivs kur kartot vardus
     private char[] burti; //masivs atseviskajiem burtiem
     private int lielums; //burtu jukla lielums
@@ -13,7 +13,11 @@ public class BurtuJuklis {
     char burts;
     burti = new char[s.length()];
     for (int j = 0; j < s.length(); j++) {
-       burts = s.charAt(j);
+       if (s.charAt(j) != ' '){
+        burts = s.charAt(j);
+       } else {
+           burts = '-'; 
+       }
        burti[j] = burts;  
     }
     return burti; //masivs ar atseviskiem burtiem  
@@ -96,9 +100,11 @@ public class BurtuJuklis {
         }
     }
     for (int i = 0; i < burtuJuklis.length; ++i) { // aizpilda tuksas vietas
-            for(int j = 0; j < burtuJuklis[i].length; ++j) {
+            
+        for(int j = 0; j < burtuJuklis[i].length; ++j) {
                 if(burtuJuklis[i][j] == 0){
-                    burtuJuklis[i][j] = '0';
+
+                    burtuJuklis[i][j] = abcdburti[r.nextInt(abcdburti.length)];
                 }
             }
         }

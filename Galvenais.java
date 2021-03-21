@@ -4,7 +4,7 @@ public class Galvenais {
 
         Lasitajs ls = new Lasitajs();
 
-        BurtuJuklis bj = new BurtuJuklis(10000);
+        BurtuJuklis bj = new BurtuJuklis(40);
 
         
         pauls.printTabula(bj.rezgaBuvesana(ls.lasiVardus()));
