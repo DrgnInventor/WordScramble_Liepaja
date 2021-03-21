@@ -81,7 +81,7 @@ public class BurtuJuklis {
     }
     }
   
-  public void rezgaBuvesana(String [] vardiMasiva){ //izveido koordinates vardiem un saliek rezgi
+  public char[][] rezgaBuvesana(String [] vardiMasiva){ //izveido koordinates vardiem un saliek rezgi
     char[] burtiMasiva;
     Random r = new Random();
     for(int i = 0; i < vardiMasiva.length; i++){
@@ -102,6 +102,7 @@ public class BurtuJuklis {
                 }
             }
         }
+        return burtuJuklis;
   }
     public static void main(String[] args) {
         BurtuJuklis bj = new BurtuJuklis(20);
