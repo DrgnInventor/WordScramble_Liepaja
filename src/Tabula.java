@@ -5,14 +5,10 @@ public class Tabula {
 	public static void main(String[] args) {
 		makeTabula();
 		printTabula();
-		clearScreen();
+		System.out.println("Ievadi komandu nigger: A4 F4\n");
 		printTabula();
+		System.out.println("Ievadi komandu nigger: ");
 	}
-	
-	public static void clearScreen() {  
-	    System.out.print("\033[H\033[2J");  
-	    System.out.flush();  
-	}  
 	
 	public static void makeTabula() {
 		int n = 5; // controlç garumu (y dimensiju)
@@ -32,6 +28,7 @@ public class Tabula {
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 	
 }
