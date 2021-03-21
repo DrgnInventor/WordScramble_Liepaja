@@ -104,17 +104,5 @@ public class BurtuJuklis {
         }
         return burtuJuklis;
   }
-    public static void main(String[] args) {
-        BurtuJuklis bj = new BurtuJuklis(20);
-        char brtj[][] = bj.burtuJuklis;
-        String[] vm = {
-            "VARDS","CITS-VARDS","DARTA-IR-STILIGA","SUDS","DABAS-MAJA","LIEPAJA","CIMDI","JUKLIS"
-        };
-        
-        bj.rezgaBuvesana(vm);
-        for (int j = 0; j < brtj.length; j++) { 
-            System.out.println(Arrays.toString(brtj[j]));
-        }    
-    }
     
   }
