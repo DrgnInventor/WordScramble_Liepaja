@@ -1,5 +1,4 @@
-package burtuJuuklis;
-import java.text.SimpleDateFormat;   
+package burtuJuuklis;  
 public class Speletajs {
     
     public Long sakuma_laiks;
