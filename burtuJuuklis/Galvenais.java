@@ -1,3 +1,4 @@
+package burtuJuuklis;
 public class Galvenais {
     public static void main(String[] args){
         Tabula pauls = new Tabula();

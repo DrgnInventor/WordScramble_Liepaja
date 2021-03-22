@@ -1,3 +1,4 @@
+package burtuJuuklis;
 public class Tabula {
 
   //  public char[][] tabula; //metodēm pieejams mainīgais
