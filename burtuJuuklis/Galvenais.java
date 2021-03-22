@@ -5,11 +5,13 @@ public class Galvenais {
 
         Lasitajs ls = new Lasitajs();
 
-        BurtuJuklis bj = new BurtuJuklis(40);
+        BurtuJuklis bj = new BurtuJuklis(20);
 
-        
+        Rezultati rez = new Rezultati();
+
+        Speletajs sp = new Speletajs("vārds");
+
         pauls.printTabula(bj.rezgaBuvesana(ls.lasiVardus()));
+        }
 
     }
-
-}

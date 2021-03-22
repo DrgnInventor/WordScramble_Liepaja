@@ -1,28 +1,22 @@
 package burtuJuuklis;  
 public class Speletajs {
     
-    public Long sakuma_laiks;
-    public Long beigu_laiks;
-    public Long laiks_ms;
+    public Long sakuma_laiks; //sakuma laiks ms
+    public Long beigu_laiks; // beigu laiks ms
+    public Long laiks_ms; // glaba laiku ms
+    public String vards; // glaba vardu
 
-    public static void main(String[] args){ 
-        Speletajs sp = new Speletajs();
-        sp.sak_laiks();
-        try {
-            Thread.sleep(10*1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sp.beigu_laiks();
+    public Speletajs(String vārds) {
+        vards = vārds;
       }
 
     public void sak_laiks(){
-        sakuma_laiks = System.currentTimeMillis();
+        sakuma_laiks = System.currentTimeMillis(); // uznem sakuma laiku
     }
 
     public void beigu_laiks(){
-        beigu_laiks = System.currentTimeMillis();
-        Long speles_laiks = beigu_laiks - sakuma_laiks;
+        beigu_laiks = System.currentTimeMillis(); // uznem beigu laiku
+        Long speles_laiks = beigu_laiks - sakuma_laiks; // aprekina speles laiku
         laiks_ms = speles_laiks;
     }
 }
