@@ -1,6 +1,5 @@
 package burtuJuuklis;
 
-import java.beans.Visibility;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -14,6 +13,7 @@ public class Rezultati {
     
     public String dokuments = "visi_rezultati.txt";
     public ArrayList<String> visi_rezultāti = new ArrayList<>();
+    public String[] sakartoti_aug_sec_rez;
     
     public void rezultatu_uzskaite(long speletaja_rezultats, String vards){
         SimpleDateFormat formatter= new SimpleDateFormat("mm:ss");
@@ -38,33 +38,54 @@ public class Rezultati {
             
         
 
-    public void labakie_rezultati(){
-        Scanner rezultātu_lasītājs = new Scanner(dokuments);
+    public void labakie_rezultati()
+    {
         try {
             File rezultāti = new File(dokuments); // atver
-            Scanner Rezultātu_Lasītājs = new Scanner(rezultāti);
-            while (Rezultātu_Lasītājs.hasNextLine()) {
-                visi_rezultāti.add((Rezultātu_Lasītājs.nextLine()); //lasa text
-            }
-            Rezultātu_Lasītājs.close();
-          } catch (FileNotFoundException e) {
+            Scanner rezultātu_Lasītājs = new Scanner(rezultāti);
+                while (rezultātu_Lasītājs.hasNextLine())    {
+                    visi_rezultāti.add(rezultātu_Lasītājs.nextLine()); //lasa text
+                                                            }
+            rezultātu_Lasītājs.close();
+            } 
+        catch (FileNotFoundException e)
+            {
             System.out.println("brrrr kods aizgaja kakaa"); // parbauda vai ir file
-          }
-          int[] apstradati_rezultati = new int[visi_rezultāti.size()];
-          int[] rez_index_aug_sec = new int[visi_rezultāti.size()];
-          
-          for (int i = 0; i < visi_rezultāti.size(); i++){
-            String laiks = visi_rezultāti.get(i);
-            int index = laiks.indexOf("»") + 1;
-            String min_sek = laiks.substring(index);
-            LocalTime localTime = LocalTime.parse(min_sek);
-            int millis = localTime.toSecondOfDay() * 1000;
-            apstradati_rezultati[i] = millis;
-            rez_index_aug_sec[i] = i;
-          }
-          BubbleSort ludzu_strada = new BubbleSort();
-          ludzu_strada.bubbleSort(apstradati_rezultati, rez_index_aug_sec);
+            }
 
-    }
-    
+        int[] apstradati_rezultati = new int[visi_rezultāti.size()];
+        int[] rez_index_aug_sec = new int[visi_rezultāti.size()];
+          
+          for (int i = 0; i < visi_rezultāti.size(); i++)
+            {
+                String laiks = visi_rezultāti.get(i);
+                int index = laiks.indexOf("»") + 1;
+                String min_sek = laiks.substring(index);
+                LocalTime localTime = LocalTime.parse(min_sek);
+                int millis = localTime.toSecondOfDay() * 1000;
+                apstradati_rezultati[i] = millis;
+                rez_index_aug_sec[i] = i;
+            }
+        int n = apstradati_rezultati.length; 
+                for (int i = 0; i < n-1; i++)
+                { 
+                    for (int j = 0; j < n-i-1; j++)
+                    { 
+                        if (apstradati_rezultati[j] > apstradati_rezultati[j+1]) 
+                        { 
+                            // swap arr[j+1] and arr[j] 
+                            int temp = apstradati_rezultati[j]; 
+                            apstradati_rezultati[j] = apstradati_rezultati[j+1]; 
+                            apstradati_rezultati[j+1] = temp;
+                            temp = rez_index_aug_sec[j];
+                            rez_index_aug_sec[j] = rez_index_aug_sec[j+1];
+                            rez_index_aug_sec[j+1] = temp; 
+                        }
+                    }
+                }
+        sakartoti_aug_sec_rez = new String[visi_rezultāti.size()];
+        for (int i = 0; i < visi_rezultāti.size(); i++){
+            sakartoti_aug_sec_rez[i] = visi_rezultāti.get(rez_index_aug_sec[i]);
+        }
+}
 }
