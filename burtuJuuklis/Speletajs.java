@@ -1,5 +1,4 @@
 package burtuJuuklis;
-import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;   
 public class Speletajs {
     
@@ -26,8 +25,6 @@ public class Speletajs {
     public void beigu_laiks(){
         beigu_laiks = System.currentTimeMillis();
         Long speles_laiks = beigu_laiks - sakuma_laiks;
-        SimpleDateFormat formatter= new SimpleDateFormat("mm:ss");
-        System.out.println(formatter.format(speles_laiks));
         laiks_ms = speles_laiks;
     }
 }
