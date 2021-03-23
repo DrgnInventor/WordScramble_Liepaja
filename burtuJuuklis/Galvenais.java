@@ -11,6 +11,8 @@ public class Galvenais {
 
         Speletajs sp = new Speletajs("vārds");
 
+        rez.dzēs_rezultātus();
+
         pauls.printTabula(bj.rezgaBuvesana(ls.lasiVardus()));
         }
 

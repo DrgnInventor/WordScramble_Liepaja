@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Rezultati {
     
-    public String dokuments = "visi_rezultati.txt"; // rezultatu uzglabasanas dokumenta nosaukums
+    public String dokuments = "visi_rezultati.txt"; // rezultatu uzglabasanas dokumenta nosaukums IMPORTANT var izveidot sistēmu kur ievada savu nosuakumu tam dokumentam, vai var nomainīt ja ir vēlme
     public ArrayList<String> visi_rezultāti = new ArrayList<>(); // glaba nolasitos rezultatus no dokumenta
     public String[] sakartoti_aug_sec_rez; // glaba rezultatus sakartotus augosa seciba
     
@@ -19,6 +19,7 @@ public class Rezultati {
         Rezultati ls = new Rezultati();
         ls.rezultatu_uzskaite(spel_rez,vards);
         ls.labakie_rezultati();
+        ls.dzēs_rezultātus();
       }
 
     public void rezultatu_uzskaite(long speletaja_rezultats, String vards){
@@ -41,7 +42,17 @@ public class Rezultati {
             e.printStackTrace();
         }
         }
-            
+    public void dzēs_rezultātus(){
+        try{
+        File rezul_dok = new File(dokuments); 
+        rezul_dok.delete(); // idzes dokumetu
+        System.out.println("Dokuments atrasts");
+        rezul_dok.createNewFile(); // izveido dokumentu
+    } catch (IOException e) {
+        System.out.println("Rezultātu dokumentu nevar izveidot.");
+    }
+
+    }        
         
 
     public void labakie_rezultati()
