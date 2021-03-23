@@ -1,19 +1,19 @@
-package burtuJuuklis;
+package burtujuuklis;
+
+import burtuJuuklis.Adreses;
+
 public class Galvenais {
+    
     public static void main(String[] args){
-        Tabula pauls = new Tabula();
-
+        Tabula tb = new Tabula();
         Lasitajs ls = new Lasitajs();
-
-        BurtuJuklis bj = new BurtuJuklis(20);
-
-        Rezultati rez = new Rezultati();
-
-        Speletajs sp = new Speletajs("vārds");
-
-        rez.dzēs_rezultātus();
-
-        pauls.printTabula(bj.rezgaBuvesana(ls.lasiVardus()));
+        BurtuJuklis bj = new BurtuJuklis(11, 26);
+        Adreses ad = new Adreses();
+        char[][] brtj = bj.rezgaBuvesana(ls.lasiVardus(), ad); //izveido rezgi
+        if(bj.tabulaDer == true){//parbauda vai rezgis ir izdevies
+            tb.printTabula(brtj);
+        }else{
+            System.out.println("pārāk mazs režģis, mēģini vēlreiz");
         }
-
     }
+}
