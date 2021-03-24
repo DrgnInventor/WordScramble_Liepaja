@@ -14,7 +14,7 @@ public class Interfeis {
 		boolean valid = false;
 		char[] vienschar;
 		char[] divichar;
-
+		int i = jk.burtuJuklis.length;
 		do {
 			do {
 				System.out.print("Ievadi pirmo koordinatu (1A formata): ");
@@ -29,12 +29,13 @@ public class Interfeis {
 				valid = checkInput(divichar);
 			} while (!valid);
 			
-			if (adr.salidzinatKoordinates(vienschar[0], vienschar[1], divichar[0], divichar[1])){
+			if (adr.salidzinatKoordinates(vienschar[0], Character.getNumericValue(vienschar[1]), divichar[0], Character.getNumericValue(divichar[1]))){
 			System.out.println("Wow tu nu gan gudrs.");
-			jk.varduDzesana(vienschar[0], vienschar[1], divichar[0], divichar[1]);
-			};
+			jk.varduDzesana(vienschar[0], Character.getNumericValue(vienschar[1]), divichar[0], Character.getNumericValue(divichar[1]));
+			i = i - 1;
+			}
 			
-		} while (true);
+		} while (i != 0);
 		//parbaudit vai koordinatas atrodas nosaukums
 		//ja atrodas nosaukums, izcelt vinu, un nonemt 1 no mainiga(?)
 		//visu loopot lidz visi vardi atrasti

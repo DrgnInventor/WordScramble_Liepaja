@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class BurtuJuklis {
     private char[] abcdburti = {'a','a','a','a','ā','b','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž','-'};
-    private char[][] burtuJuklis; //masivs kur kartot vardus
+    public char[][] burtuJuklis; //masivs kur kartot vardus
     private char[] burti; //masivs atseviskajiem burtiem
     public int platums; //burtu jukla lielums
     public int garums;
@@ -150,16 +150,31 @@ public class BurtuJuklis {
     return burtuJuklis;
     }
   
-   public void varduDzesana(int virziens, int varda_garums, int rinda, int kolona){ //pārvērš burtus uz lielajiem burtiem
-       for(int j = 0; j < varda_garums; j++){
-        if(virziens == 0){
-            burtuJuklis[rinda][kolona + j] = Character.toUpperCase(burtuJuklis[rinda][kolona + j]);
-        } else if(virziens == 1){
-            burtuJuklis[rinda + j][kolona] = Character.toUpperCase(burtuJuklis[rinda + j][kolona]);
-        } else{
-            burtuJuklis[rinda + j][kolona + j] = Character.toUpperCase(burtuJuklis[rinda + j][kolona + j]);
-        } 
+    public void varduDzesana(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas){ //pārvērš burtus uz lielajiem burtiem
+        Adreses a = new Adreses();
+        int kolona_sakums = a.getSkaitlis(burts_sakums);
+        int kolona_beigas = a.getSkaitlis(burts_beigas);
+        int virziens;
+        int varda_garums = 0;
+        if(rinda_sakums == rinda_beigas){
+            virziens = 0;
+            varda_garums = kolona_beigas - kolona_sakums;
+        }else if(kolona_sakums == kolona_beigas){
+            virziens = 1;
+            varda_garums = rinda_beigas - rinda_sakums;
+        }else{
+            virziens = 2;
+            varda_garums = rinda_beigas - rinda_sakums;
+        }
+        for(int j = 0; j < varda_garums; j++){
+         if(virziens == 0){
+             burtuJuklis[rinda_sakums][kolona_sakums + j] = Character.toUpperCase(burtuJuklis[rinda_sakums][kolona_sakums + j]);
+         } else if(virziens == 1){
+             burtuJuklis[rinda_sakums + j][kolona_sakums] = Character.toUpperCase(burtuJuklis[rinda_sakums + j][kolona_sakums]);
+         } else{
+             burtuJuklis[rinda_sakums + j][kolona_sakums + j] = Character.toUpperCase(burtuJuklis[rinda_sakums + j][kolona_sakums + j]);
+         } 
+     }
     }
-   }
 }  
   
