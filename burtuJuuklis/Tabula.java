@@ -1,4 +1,4 @@
-package burtujuuklis;
+package burtuJuuklis;
 
 public class Tabula {
   

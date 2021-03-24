@@ -1,6 +1,4 @@
-package burtujuuklis;
-
-import burtuJuuklis.Adreses;
+package burtuJuuklis;
 
 
 public class Galvenais {

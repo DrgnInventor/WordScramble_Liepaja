@@ -1,7 +1,6 @@
-package burtujuuklis;
+package burtuJuuklis;
 
 import java.util.Random;
-import burtuJuuklis.Adreses;
 
 public class BurtuJuklis {
     private char[] abcdburti = {'a','a','a','a','ā','b','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž','-'};
