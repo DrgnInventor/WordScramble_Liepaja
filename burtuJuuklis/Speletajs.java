@@ -6,8 +6,8 @@ public class Speletajs {
     public Long laiks_ms; // glaba laiku ms
     public String vards; // glaba vardu
 
-    public Speletajs(String vārds) {
-        vards = vārds;
+    public Speletajs(String vards) {
+        this.vards = vards;
       }
 
     public void sak_laiks(){
