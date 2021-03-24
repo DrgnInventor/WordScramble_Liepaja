@@ -84,8 +84,7 @@ public class BurtuJuklis {
   }else{
       tabulaDer = false;
   }
-    if(tr == true)return true;
-    else return false;
+    return tr;
   }
   
   public void varduLiksana(char[] burtiMasiva, int virziens, int lauks_rinda, int lauks_kolona){
@@ -113,6 +112,7 @@ public class BurtuJuklis {
     }
     if(platums <= 0 || garums <= 0){ //pārbauda vai dotie parametri nav 0 vai negatīvi
         tabulaDer = false;
+        System.out.println("lūdzu ievadi normālus skaitļus");
     }
     if(tabulaDer){
         for(int i = 0; i < vardiMasiva.length; i++){
@@ -124,7 +124,7 @@ public class BurtuJuklis {
                 int lauks_rinda = (int)(Math.random()*(garums - 2) + 1);
                 if(vaiVardsDer(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona)){
                     varduLiksana(burtiMasiva, virziens, lauks_rinda, lauks_kolona);
-                    adr.rindaArKoordinatam(burtiMasiva, virziens, lauks_rinda, lauks_kolona); //papildina rindu
+                    adr.rindaArKoordinatam(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona); //papildina rindu
                     tabulaDer = true;
                 }else{                    
                     skaititajs++;
@@ -144,8 +144,23 @@ public class BurtuJuklis {
                 }
             }
         }
-    }else tabulaDer = false;
+    }else{
+        tabulaDer = false;
+        System.out.println("slikta tabula");
+    }
     return burtuJuklis;
     }
+  
+   public void varduDzesana(int virziens, int varda_garums, int rinda, int kolona){ //pārvērš burtus uz lielajiem burtiem
+       for(int j = 0; j < varda_garums; j++){
+        if(virziens == 0){
+            burtuJuklis[rinda][kolona + j] = Character.toUpperCase(burtuJuklis[rinda][kolona + j]);
+        } else if(virziens == 1){
+            burtuJuklis[rinda + j][kolona] = Character.toUpperCase(burtuJuklis[rinda + j][kolona]);
+        } else{
+            burtuJuklis[rinda + j][kolona + j] = Character.toUpperCase(burtuJuklis[rinda + j][kolona + j]);
+        } 
+    }
+   }
 }  
   
