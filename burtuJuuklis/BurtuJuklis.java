@@ -40,7 +40,10 @@ public class BurtuJuklis {
                 for(int i = 0; i < garums_vardam; i++){
                     if(burtuJuklis[rinda][kolona + i] == 0){
                         tr = true;
-                    }else {
+                    }else if (burtuJuklis[rinda][kolona + i] == burti[i]) {
+                        tr = true;
+                    }
+                    else{
                         tr = false;
                         break;
                     }
@@ -54,7 +57,9 @@ public class BurtuJuklis {
                 for(int i = 0; i < garums_vardam; i++){
                     if(burtuJuklis[rinda + i][kolona] == 0){
                         tr = true;
-                    }else {
+                    } else if (burtuJuklis[rinda + i][kolona] == burti[i]) {
+                        tr = true;
+                    } else {
                         tr = false;
                         break;
                     }
@@ -66,6 +71,8 @@ public class BurtuJuklis {
             if(rinda + garums_vardam <= garums && kolona + garums_vardam <= platums){
                 for(int i = 0; i < garums_vardam; i++){
                     if(burtuJuklis[rinda + i][kolona + i] == 0){
+                        tr = true;
+                    }else if (burtuJuklis[rinda + i][kolona + i] == burti[i]) {
                         tr = true;
                     }else {
                         tr = false;
