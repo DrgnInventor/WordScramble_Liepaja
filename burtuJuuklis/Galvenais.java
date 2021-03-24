@@ -14,15 +14,13 @@ public class Galvenais {
         char[][] brtj = bj.rezgaBuvesana(ls.lasiVardus(), ad); //izveido rezgi
         if(bj.tabulaDer == true){//parbauda vai rezgis ir izdevies
             tb.printTabula(brtj);}
+        System.out.println(bj.tabulaDer);
         
         face.x = bj.platums;
         face.y = bj.garums;
         
         sp.sak_laiks(); // speles sakums
-        
-        face.userInput();
-        
-
+        face.userInput(bj);
         sp.beigu_laiks(); // speles beigas
 }
 }

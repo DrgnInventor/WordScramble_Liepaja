@@ -11,6 +11,9 @@ import java.util.Map;
 public class Adreses {
     private Map<Integer, Character> alfabets;
     public List<Vertibas> rindaVertibam;
+    public Vertibas vrtb;
+    public int beigas_rinda;
+    public int beigas_kolona;
    
     public Adreses(){
         this.alfabets = new HashMap();
@@ -30,8 +33,7 @@ public class Adreses {
         return skaitlis;
     } 
     public void rindaArKoordinatam(int virziens, int varda_garums, int rinda, int kolona){ //pievieno rindai info par varda atrasanas vietu
-        int beigas_rinda = 0;
-        int beigas_kolona = 0;
+        
         switch(virziens){
             case 0:
                 beigas_rinda = rinda;
@@ -46,20 +48,25 @@ public class Adreses {
                 beigas_kolona = varda_garums + kolona;
                 break;
         }
-        Vertibas vrtb = new Vertibas(virziens, rinda, kolona, beigas_rinda, beigas_kolona);
+        vrtb = new Vertibas(virziens, rinda, kolona, beigas_rinda, beigas_kolona);
         rindaVertibam.add(vrtb);
     }
     
     public boolean salidzinatKoordinates(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas){
         //salīdzina dotās koordinātas ar tām, kas vērtību rindā, atgriež true or false atbilstoši
+        System.out.println("salidzinatKoordinates Input " + burts_sakums +" "+ rinda_sakums + " " + burts_beigas + " " + rinda_beigas);
         int kolona_sakums = getSkaitlis(burts_sakums);
+        System.out.println("ks "+kolona_sakums);
         int kolona_beigas = getSkaitlis(burts_beigas);
+        System.out.println("kb "+kolona_beigas);
         boolean tr = false;
+        System.out.println("For limits " + rindaVertibam.size());
         for(int i = 0; i < rindaVertibam.size(); i++){
             int sakums_rinda = rindaVertibam.get(i).getSakumsRinda();
             int sakums_kolona = rindaVertibam.get(i).getSakumsKolona();
             int beigas_rinda = rindaVertibam.get(i).getBeigasRinda();
             int beigas_kolona = rindaVertibam.get(i).getBeigasKolona();
+            System.out.println(i + " " + sakums_rinda +" "+sakums_kolona+" "+beigas_rinda+" "+beigas_kolona);
             if(sakums_rinda == rinda_sakums && sakums_kolona == kolona_sakums && beigas_rinda == rinda_beigas && beigas_kolona == kolona_beigas){
                 tr = true;
                 break;

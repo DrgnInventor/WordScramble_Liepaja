@@ -124,12 +124,14 @@ public class BurtuJuklis {
                 if(vaiVardsDer(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona)){
                     varduLiksana(burtiMasiva, virziens, lauks_rinda, lauks_kolona);
                     adr.rindaArKoordinatam(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona); //papildina rindu
+                    System.out.println("KILL ME");
+                    System.out.print(burtiMasiva.length +" " + virziens +" " + lauks_rinda +" " + lauks_kolona + "\n");
                     tabulaDer = true;
                 }else{                    
                     skaititajs++;
                     tabulaDer = false;
                 }
-            }while(skaititajs < 1000 && !tabulaDer); //ja 1000 reizēs nevar atrast vietu, pieņem, ka vietas nav
+            }while(skaititajs < 100000 && !tabulaDer); //ja 1000 reizēs nevar atrast vietu, pieņem, ka vietas nav
         }
     }
     if(daudzReizu == true && tabulaDer == true){    

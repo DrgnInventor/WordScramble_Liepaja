@@ -7,10 +7,9 @@ public class Interfeis {
 		public  int x = 5; //pagaidu vertibas
 		public  int y = 4;
 	
-	public void userInput() { // moska outputtot 1-9 vai ko (cipars atbilst nosaukuma id)
+	public void userInput(BurtuJuklis jk) { // moska outputtot 1-9 vai ko (cipars atbilst nosaukuma id)
 		Scanner keyboard = new Scanner(System.in);
 		Adreses adr = new Adreses();
-		BurtuJuklis jk = new BurtuJuklis(x, y);
 		boolean valid = false;
 		char[] vienschar;
 		char[] divichar;
@@ -29,13 +28,17 @@ public class Interfeis {
 				valid = checkInput(divichar);
 			} while (!valid);
 			
-			if (adr.salidzinatKoordinates(vienschar[0], Character.getNumericValue(vienschar[1]), divichar[0], Character.getNumericValue(divichar[1]))){
+			if (adr.salidzinatKoordinates(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]))){
 			System.out.println("Wow tu nu gan gudrs.");
-			jk.varduDzesana(vienschar[0], Character.getNumericValue(vienschar[1]), divichar[0], Character.getNumericValue(divichar[1]));
+			jk.varduDzesana(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]));
 			i = i - 1;
+			} else {
+				System.out.println(vienschar[1] +" "+ Character.getNumericValue(vienschar[0])+" "+ divichar[1]+" "+ Character.getNumericValue(divichar[0]));
+				System.out.println("Broo u dumb hoe");
 			}
 			
 		} while (i != 0);
+		keyboard.close();
 		//parbaudit vai koordinatas atrodas nosaukums
 		//ja atrodas nosaukums, izcelt vinu, un nonemt 1 no mainiga(?)
 		//visu loopot lidz visi vardi atrasti
