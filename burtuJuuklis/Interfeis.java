@@ -7,13 +7,12 @@ public class Interfeis {
 		public  int x = 5; //pagaidu vertibas
 		public  int y = 4;
 	
-	public void userInput(BurtuJuklis jk) { // moska outputtot 1-9 vai ko (cipars atbilst nosaukuma id)
+	public void userInput(BurtuJuklis jk, Adreses adr, Tabula t) { // moska outputtot 1-9 vai ko (cipars atbilst nosaukuma id)
 		Scanner keyboard = new Scanner(System.in);
-		Adreses adr = new Adreses();
 		boolean valid = false;
 		char[] vienschar;
 		char[] divichar;
-		int i = jk.burtuJuklis.length;
+		int i = adr.rindaVertibam.size();
 		do {
 			do {
 				System.out.print("Ievadi pirmo koordinatu (1A formata): ");
@@ -31,6 +30,7 @@ public class Interfeis {
 			if (adr.salidzinatKoordinates(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]))){
 			System.out.println("Wow tu nu gan gudrs.");
 			jk.varduDzesana(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]));
+                        t.printTabula(jk.burtuJuklis);
 			i = i - 1;
 			} else {
 				System.out.println(vienschar[1] +" "+ Character.getNumericValue(vienschar[0])+" "+ divichar[1]+" "+ Character.getNumericValue(divichar[0]));
@@ -38,6 +38,7 @@ public class Interfeis {
 			}
 			
 		} while (i != 0);
+                System.out.println("uzvara!!!");
 		keyboard.close();
 		//parbaudit vai koordinatas atrodas nosaukums
 		//ja atrodas nosaukums, izcelt vinu, un nonemt 1 no mainiga(?)

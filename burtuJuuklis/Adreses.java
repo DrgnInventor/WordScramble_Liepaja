@@ -14,13 +14,16 @@ public class Adreses {
     public Vertibas vrtb;
     public int beigas_rinda;
     public int beigas_kolona;
-   
+   public int virziens;
+   public int rinda;
+   public int kolona;
     public Adreses(){
         this.alfabets = new HashMap();
         this.rindaVertibam = new ArrayList();
         for(int i = 0; i < 26; i++){ //uztaisa mapu, kur intiem 1- 26 atbilst alfabeta burts
             alfabets.put(i, (char)(i + 17 + '0'));
         }
+        
     }
     public char getBurts(int skaitlis){ //atgriez atbilstoso burtu padotajam skaitlim
         return alfabets.get(skaitlis);
@@ -32,8 +35,10 @@ public class Adreses {
         }
         return skaitlis;
     } 
-    public void rindaArKoordinatam(int virziens, int varda_garums, int rinda, int kolona){ //pievieno rindai info par varda atrasanas vietu
-        
+    public void rindaArKoordinatam(int virz, int varda_garums, int rind, int kolon){ //pievieno rindai info par varda atrasanas vietu
+        this.virziens = virz;
+        this.rinda = rind;
+        this.kolona = kolon;
         switch(virziens){
             case 0:
                 beigas_rinda = rinda;
@@ -57,17 +62,17 @@ public class Adreses {
         System.out.println("salidzinatKoordinates Input " + burts_sakums +" "+ rinda_sakums + " " + burts_beigas + " " + rinda_beigas);
         int kolona_sakums = getSkaitlis(burts_sakums);
         System.out.println("ks "+kolona_sakums);
-        int kolona_beigas = getSkaitlis(burts_beigas);
+        int kolona_beigas = getSkaitlis(burts_beigas) + 1;
         System.out.println("kb "+kolona_beigas);
-        boolean tr = false;
+        boolean tr = true;
         System.out.println("For limits " + rindaVertibam.size());
         for(int i = 0; i < rindaVertibam.size(); i++){
             int sakums_rinda = rindaVertibam.get(i).getSakumsRinda();
             int sakums_kolona = rindaVertibam.get(i).getSakumsKolona();
-            int beigas_rinda = rindaVertibam.get(i).getBeigasRinda();
-            int beigas_kolona = rindaVertibam.get(i).getBeigasKolona();
-            System.out.println(i + " " + sakums_rinda +" "+sakums_kolona+" "+beigas_rinda+" "+beigas_kolona);
-            if(sakums_rinda == rinda_sakums && sakums_kolona == kolona_sakums && beigas_rinda == rinda_beigas && beigas_kolona == kolona_beigas){
+            int beigas_rinda_list = rindaVertibam.get(i).getBeigasRinda();
+            int beigas_kolona_list = rindaVertibam.get(i).getBeigasKolona();
+            System.out.println(i + " " + sakums_rinda +" "+sakums_kolona+" "+beigas_rinda_list+" "+beigas_kolona_list);
+            if(sakums_rinda == rinda_sakums && sakums_kolona == kolona_sakums && beigas_rinda_list == rinda_beigas && beigas_kolona_list == kolona_beigas){
                 tr = true;
                 break;
             }else tr = false;

@@ -123,7 +123,7 @@ public class BurtuJuklis {
                 int lauks_rinda = (int)(Math.random()*(garums - 2) + 1);
                 if(vaiVardsDer(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona)){
                     varduLiksana(burtiMasiva, virziens, lauks_rinda, lauks_kolona);
-                    adr.rindaArKoordinatam(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona); //papildina rindu
+                    adr.rindaArKoordinatam(virziens, burtiMasiva.length, lauks_rinda, lauks_kolona); //papildina rindu
                     System.out.println("KILL ME");
                     System.out.print(burtiMasiva.length +" " + virziens +" " + lauks_rinda +" " + lauks_kolona + "\n");
                     tabulaDer = true;
@@ -168,7 +168,7 @@ public class BurtuJuklis {
             virziens = 2;
             varda_garums = rinda_beigas - rinda_sakums;
         }
-        for(int j = 0; j < varda_garums; j++){
+        for(int j = 0; j <= varda_garums; j++){
          if(virziens == 0){
              burtuJuklis[rinda_sakums][kolona_sakums + j] = Character.toUpperCase(burtuJuklis[rinda_sakums][kolona_sakums + j]);
          } else if(virziens == 1){

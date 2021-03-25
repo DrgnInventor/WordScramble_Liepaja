@@ -20,7 +20,7 @@ public class Galvenais {
         face.y = bj.garums;
         
         sp.sak_laiks(); // speles sakums
-        face.userInput(bj);
+        face.userInput(bj, ad, tb);
         sp.beigu_laiks(); // speles beigas
 }
 }
