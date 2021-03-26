@@ -28,10 +28,11 @@ public class Interfeis {
 			} while (!valid);
 			
 			if (adr.salidzinatKoordinates(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]))){
-			System.out.println("Wow tu nu gan gudrs.");
-			jk.varduDzesana(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]));
-                        t.printTabula(jk.burtuJuklis);
-			i = i - 1;
+                            System.out.println("Wow tu nu gan gudrs.");
+                            jk.varduDzesana(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]), adr);
+                            t.printTabula(jk.burtuJuklis);
+                            jk.getVards(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]), adr);
+                            i = i - 1;
 			} else {
 				System.out.println(vienschar[1] +" "+ Character.getNumericValue(vienschar[0])+" "+ divichar[1]+" "+ Character.getNumericValue(divichar[0]));
 				System.out.println("Broo u dumb hoe");
