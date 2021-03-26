@@ -14,6 +14,8 @@ public class BurtuJuklis {
     garums = n;
     burtuJuklis = new char[garums][platums];
   }
+  
+  
   public char[] atseviskieBurti(String s){ //sadali stringu characteros un izveido masivu
     char burts;
     burti = new char[s.length()];
@@ -124,8 +126,6 @@ public class BurtuJuklis {
                 if(vaiVardsDer(burtiMasiva.length, virziens, lauks_rinda, lauks_kolona)){
                     varduLiksana(burtiMasiva, virziens, lauks_rinda, lauks_kolona);
                     adr.rindaArKoordinatam(virziens, burtiMasiva.length, lauks_rinda, lauks_kolona); //papildina rindu
-                    System.out.println("KILL ME");
-                    System.out.print(burtiMasiva.length +" " + virziens +" " + lauks_rinda +" " + lauks_kolona + "\n");
                     tabulaDer = true;
                 }else{                    
                     skaititajs++;
@@ -152,8 +152,8 @@ public class BurtuJuklis {
     return burtuJuklis;
     }
   
-    public void varduDzesana(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas){ //pārvērš burtus uz lielajiem burtiem
-        Adreses a = new Adreses();
+    public void varduDzesana(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas, Adreses a){ //pārvērš burtus uz lielajiem burtiem
+        
         int kolona_sakums = a.getSkaitlis(burts_sakums);
         int kolona_beigas = a.getSkaitlis(burts_beigas);
         int virziens;
@@ -177,6 +177,41 @@ public class BurtuJuklis {
              burtuJuklis[rinda_sakums + j][kolona_sakums + j] = Character.toUpperCase(burtuJuklis[rinda_sakums + j][kolona_sakums + j]);
          } 
      }
+    }
+    
+    public void getVards(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas, Adreses a){
+        int kolona_sakums = a.getSkaitlis(burts_sakums);
+        int kolona_beigas = a.getSkaitlis(burts_beigas);
+        int virziens;
+        int varda_garums = 0;
+        String burts;
+        String vards = "";
+        if(rinda_sakums == rinda_beigas){
+            virziens = 0;
+            varda_garums = kolona_beigas - kolona_sakums;
+        }else if(kolona_sakums == kolona_beigas){
+            virziens = 1;
+            varda_garums = rinda_beigas - rinda_sakums;
+        }else{
+            virziens = 2;
+            varda_garums = rinda_beigas - rinda_sakums;
+        }
+        for(int j = 0; j <= varda_garums; j++){
+         if(virziens == 0){
+             burtuJuklis[rinda_sakums][kolona_sakums + j] = Character.toUpperCase(burtuJuklis[rinda_sakums][kolona_sakums + j]);
+             burts = Character.toString(burtuJuklis[rinda_sakums][kolona_sakums + j]);
+             vards = vards + burts;
+         } else if(virziens == 1){
+             burtuJuklis[rinda_sakums + j][kolona_sakums] = Character.toUpperCase(burtuJuklis[rinda_sakums + j][kolona_sakums]);
+             burts = Character.toString(burtuJuklis[rinda_sakums + j][kolona_sakums]);
+             vards = vards + burts;
+         } else{
+             burtuJuklis[rinda_sakums + j][kolona_sakums + j] = Character.toUpperCase(burtuJuklis[rinda_sakums + j][kolona_sakums + j]);
+             burts = Character.toString(burtuJuklis[rinda_sakums + j][kolona_sakums + j]);
+             vards = vards + burts;
+         } 
+     }
+        System.out.println(vards);
     }
 }  
   
