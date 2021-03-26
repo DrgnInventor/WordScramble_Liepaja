@@ -20,12 +20,14 @@ public class Interfeis {
 				vienschar = viens.toCharArray(); // sadala string uz char masivu
 				valid = checkInput(vienschar); // parbauda vai koordinata ir pareizi uzrakstita
 			} while (!valid);
+			vienschar[1] = Character.toUpperCase(vienschar[1]); // parliecinas ka burts ir pareiza sintaksa
 			do {
 				System.out.print("Ievadi otro koordinatu (1A formata): ");
 				String divi = keyboard.next();
 				divichar = divi.toCharArray(); // sadala string uz char masivu
 				valid = checkInput(divichar);
 			} while (!valid);
+			divichar[1] = Character.toUpperCase(divichar[1]);
 			
 			if (adr.salidzinatKoordinates(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]))){
                             System.out.println("Wow tu nu gan gudrs.");
