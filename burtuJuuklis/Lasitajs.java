@@ -20,7 +20,6 @@ public class Lasitajs {
         while (Lasītājs.hasNextLine()) {
           vardiLst.add((Lasītājs.nextLine()).toLowerCase()); //lasa text
         }
-        System.out.println("BRRRR kods neizxgaja kakaaa");
         Lasītājs.close();
       } catch (FileNotFoundException e) {
         System.out.println("brrrr kods aizgaja kakaa"); // parbauda vai ir file

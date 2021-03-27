@@ -59,19 +59,14 @@ public class Adreses {
     
     public boolean salidzinatKoordinates(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas){
         //salīdzina dotās koordinātas ar tām, kas vērtību rindā, atgriež true or false atbilstoši
-        System.out.println("salidzinatKoordinates Input " + burts_sakums +" "+ rinda_sakums + " " + burts_beigas + " " + rinda_beigas);
         int kolona_sakums = getSkaitlis(burts_sakums);
-        System.out.println("ks "+kolona_sakums);
         int kolona_beigas = getSkaitlis(burts_beigas) + 1;
-        System.out.println("kb "+kolona_beigas);
         boolean tr = true;
-        System.out.println("For limits " + rindaVertibam.size());
         for(int i = 0; i < rindaVertibam.size(); i++){
             int sakums_rinda = rindaVertibam.get(i).getSakumsRinda();
             int sakums_kolona = rindaVertibam.get(i).getSakumsKolona();
             int beigas_rinda_list = rindaVertibam.get(i).getBeigasRinda();
             int beigas_kolona_list = rindaVertibam.get(i).getBeigasKolona();
-            System.out.println(i + " " + sakums_rinda +" "+sakums_kolona+" "+beigas_rinda_list+" "+beigas_kolona_list);
             if(sakums_rinda == rinda_sakums && sakums_kolona == kolona_sakums && beigas_rinda_list == rinda_beigas && beigas_kolona_list == kolona_beigas){
                 tr = true;
                 break;
