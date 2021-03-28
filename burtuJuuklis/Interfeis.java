@@ -35,15 +35,16 @@ public class Interfeis {
                     System.out.println("Wow tu nu gan gudrs.");
                     jk.varduDzesana(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]), adr);
                     t.printTabula(jk.burtuJuklis);
-                    System.out.println("Tu atradi: " + adr.rindaVertibam.get(adr.kartasNr).getVardsString());
                     adr.atminetieVardi.add(adr.rindaVertibam.get(adr.kartasNr).getVardsString());
+                    System.out.println("Tu esi atradis: ");
+                    adr.getAtminetieVardi();
                     i = i - 1; 
                 }else{
                     System.out.println("atkartosana NAV zinasanu mate smh");
                 }
                 
             } else {
-                System.out.println("Broo u dumb hoe");
+                System.out.println("nepareizi");
             }
 
         } while (i != 0);

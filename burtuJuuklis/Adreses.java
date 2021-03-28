@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 /**
  *
  * @author darta
@@ -27,11 +28,16 @@ public class Adreses {
         for(int i = 0; i < atminetieVardi.size(); i++){
             if(atminetieVardi.get(i).equals(s)){
                 tr = false;
-            }else{
-                tr = true;
+                break;
             }
         }
         return tr;
+    }
+    public void getAtminetieVardi(){
+        int size = atminetieVardi.size() - 1;
+        for(int i = size; i >= 0; i--){
+            System.out.println(atminetieVardi.get(i));
+        }
     }
     public char getBurts(int skaitlis){ //atgriez atbilstoso burtu padotajam skaitlim
         return alfabets.get(skaitlis);
