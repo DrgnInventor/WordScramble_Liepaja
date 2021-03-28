@@ -11,19 +11,27 @@ import java.util.Map;
 public class Adreses {
     private Map<Integer, Character> alfabets;
     public List<Vertibas> rindaVertibam;
-    public Vertibas vrtb;
-    public int beigas_rinda;
-    public int beigas_kolona;
-   public int virziens;
-   public int rinda;
-   public int kolona;
+    public int kartasNr;
+    public List<String> atminetieVardi;
     public Adreses(){
-        this.alfabets = new HashMap();
-        this.rindaVertibam = new ArrayList();
+        alfabets = new HashMap();
+        rindaVertibam = new ArrayList();
+        atminetieVardi = new ArrayList();
         for(int i = 0; i < 26; i++){ //uztaisa mapu, kur intiem 1- 26 atbilst alfabeta burts
             alfabets.put(i, (char)(i + 17 + '0'));
         }
         
+    }
+    public boolean checkAtminetieVardi(String s){
+        boolean tr = true;
+        for(int i = 0; i < atminetieVardi.size(); i++){
+            if(atminetieVardi.get(i).equals(s)){
+                tr = false;
+            }else{
+                tr = true;
+            }
+        }
+        return tr;
     }
     public char getBurts(int skaitlis){ //atgriez atbilstoso burtu padotajam skaitlim
         return alfabets.get(skaitlis);
@@ -35,10 +43,10 @@ public class Adreses {
         }
         return skaitlis;
     } 
-    public void rindaArKoordinatam(int virz, int varda_garums, int rind, int kolon){ //pievieno rindai info par varda atrasanas vietu
-        this.virziens = virz;
-        this.rinda = rind;
-        this.kolona = kolon;
+    public void rindaArKoordinatam(char [] vards, int virziens, int varda_garums, int rinda, int kolona){ //pievieno rindai info par varda atrasanas vietu
+        Vertibas vrtb;
+        int beigas_rinda = 0;
+        int beigas_kolona = 0;
         switch(virziens){
             case 0:
                 beigas_rinda = rinda;
@@ -53,7 +61,7 @@ public class Adreses {
                 beigas_kolona = varda_garums + kolona;
                 break;
         }
-        vrtb = new Vertibas(virziens, rinda, kolona, beigas_rinda, beigas_kolona);
+        vrtb = new Vertibas(vards, virziens, rinda, kolona, beigas_rinda, beigas_kolona);
         rindaVertibam.add(vrtb);
     }
     
@@ -69,6 +77,7 @@ public class Adreses {
             int beigas_kolona_list = rindaVertibam.get(i).getBeigasKolona();
             if(sakums_rinda == rinda_sakums && sakums_kolona == kolona_sakums && beigas_rinda_list == rinda_beigas && beigas_kolona_list == kolona_beigas){
                 tr = true;
+                kartasNr = i;
                 break;
             }else tr = false;
         }

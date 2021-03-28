@@ -10,20 +10,33 @@ package burtuJuuklis;
  * @author darta
  */
 public class Vertibas { //klase info par vardu atrasanas vietam glababsanai
-   
-    int virziens;
-    int sakums_rinda;
-    int sakums_kolona;
-    int beigas_rinda;
-    int beigas_kolona;
-    public Vertibas(int virziens, int sr, int sk, int br, int bk){
+    private char[] vards;
+    private int virziens;
+    private int sakums_rinda;
+    private int sakums_kolona;
+    private int beigas_rinda;
+    private int beigas_kolona;
+    public Vertibas(char[] vards, int virziens, int sr, int sk, int br, int bk){
+        this.vards = vards;
         this.virziens = virziens;
         this.sakums_rinda = sr;
         this.sakums_kolona = sk;
         this.beigas_rinda = br;
         this.beigas_kolona = bk;
     }
-    
+    public String getVardsString(){
+        String vards_string = "";
+        for(int i  = 0; i < vards.length; i++){
+            String burts;
+            if(vards[i] == '-'){
+                burts = " ";
+            }else{
+                burts = Character.toString(vards[i]);
+            }
+            vards_string = vards_string + burts;
+        }
+        return vards_string.toUpperCase();
+    }
     public int getVirziens(){
         return virziens;
     }
