@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Rezultati {
     //kods neizskat'as smuki
     public String dokuments = "visi_rezultati.txt"; // rezultatu uzglabasanas dokumenta nosaukums IMPORTANT var izveidot sistēmu kur ievada savu nosuakumu tam dokumentam, vai var nomainīt ja ir vēlme
-    public ArrayList<String> visi_rezultāti = new ArrayList<>(); // glaba nolasitos rezultatus no dokumenta
+    public ArrayList<String> visi_rezultaati = new ArrayList<>(); // glaba nolasitos rezultatus no dokumenta
     public String[] sakartoti_aug_sec_rez; // glaba rezultatus sakartotus augosa seciba
 
     public void rezultatu_uzskaite(long speletaja_rezultats, String vards){
@@ -29,7 +29,7 @@ public class Rezultati {
           }
           try {
             FileWriter rezultatu_pierakstitajs = new FileWriter(dokuments, true);
-            rezultatu_pierakstitajs.write("\n" + vards + " » " + formatter.format(speletaja_rezultats)); // pieraksta rezultātus
+            rezultatu_pierakstitajs.write("\n" + vards + " > " + formatter.format(speletaja_rezultats)); // pieraksta rezultātus
             rezultatu_pierakstitajs.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -56,7 +56,7 @@ public class Rezultati {
                 while (rezultātu_Lasītājs.hasNextLine())    {
                     String temp_thing = rezultātu_Lasītājs.nextLine();
                     if (!(temp_thing.equals(null))){
-                    visi_rezultāti.add(rezultātu_Lasītājs.nextLine()); // Nolasa rezultātus
+                    visi_rezultaati.add(temp_thing); // Nolasa rezultātus
                 }}
             rezultātu_Lasītājs.close();
             } 
@@ -65,13 +65,14 @@ public class Rezultati {
             System.out.println("brrrr kods aizgaja kakaa"); // parbauda vai ir file
             }
 
-        int[] apstradati_rezultati = new int[visi_rezultāti.size()]; // rezultāti atēloti ms
-        int[] rez_index_aug_sec = new int[visi_rezultāti.size()]; // rezultātu index sakārtoti augšā secība index atbils visis_rezultati vertibam
+        int[] apstradati_rezultati = new int[visi_rezultaati.size()]; // rezultāti atēloti ms
+        int[] rez_index_aug_sec = new int[visi_rezultaati.size()]; // rezultātu index sakārtoti augšā secība index atbils visis_rezultati vertibam
           
-          for (int i = 0; i < visi_rezultāti.size(); i++)
+          for (int i = 0; i < visi_rezultaati.size(); i++)
             {
-                String laiks = visi_rezultāti.get(i); // paņem pirmo rezultātu
-                int index = laiks.indexOf("»") + 2; // atrod laiku un nolasa
+                String laiks = visi_rezultaati.get(i); // paņem pirmo rezultātu
+                int index = laiks.indexOf(">") + 2; // atrod laiku un nolasa
+                System.out.println(index + " " + laiks);
                 String min_sek = laiks.substring(index); // dabūt mm:ss no rezultāta
                 LocalTime localTime = LocalTime.parse(min_sek); // pārveido string mm:ss uz local time object
                 int millis = localTime.toSecondOfDay() * 1000; // pārveido doto laiku mm:ss formātā uz ms
@@ -98,9 +99,9 @@ public class Rezultati {
                         }
                     }
                 }
-        sakartoti_aug_sec_rez = new String[visi_rezultāti.size()];
-        for (int i = 0; i < visi_rezultāti.size(); i++){ // Ievada sakārtotos rezultātus masīvā sakartoti_aug_sec_rez
-            sakartoti_aug_sec_rez[i] = visi_rezultāti.get(rez_index_aug_sec[i]);
+        sakartoti_aug_sec_rez = new String[visi_rezultaati.size()];
+        for (int i = 0; i < visi_rezultaati.size(); i++){ // Ievada sakārtotos rezultātus masīvā sakartoti_aug_sec_rez
+            sakartoti_aug_sec_rez[i] = visi_rezultaati.get(rez_index_aug_sec[i]);
         }
 }
     public void paradiLabakosRezultatus(){

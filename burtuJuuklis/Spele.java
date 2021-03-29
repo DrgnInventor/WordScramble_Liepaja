@@ -58,7 +58,7 @@ public class Spele {
                 ad.getAtminetieVardi();
                 System.out.print("\n\n\n");
                 System.out.print("Kas ir apslēptais vārds?\n");
-                minejums = s.next();
+                minejums = s.nextLine();
                 if ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase())){
                     System.out.println("Uzminējāt!");
                 } else {
