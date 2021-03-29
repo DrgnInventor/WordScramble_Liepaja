@@ -62,7 +62,7 @@ public class Spele {
             } else {
                 System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
             }
-        } while (!((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase())));
+        } while (!(minejums.toLowerCase().equals(apsleptaisVards.toLowerCase())));
         sp.beigu_laiks();
     }
 
