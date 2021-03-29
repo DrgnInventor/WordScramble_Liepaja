@@ -54,8 +54,10 @@ public class Rezultati {
             File rezultāti = new File(dokuments); // Atver dokumentu
             Scanner rezultātu_Lasītājs = new Scanner(rezultāti);
                 while (rezultātu_Lasītājs.hasNextLine())    {
+                    String temp_thing = rezultātu_Lasītājs.nextLine();
+                    if (!(temp_thing.equals(null))){
                     visi_rezultāti.add(rezultātu_Lasītājs.nextLine()); // Nolasa rezultātus
-                                                            }
+                }}
             rezultātu_Lasītājs.close();
             } 
         catch (FileNotFoundException e)
@@ -107,12 +109,12 @@ public class Rezultati {
         if ( 0 < sakartoti_aug_sec_rez.length && sakartoti_aug_sec_rez.length < 5){
             System.out.println((sakartoti_aug_sec_rez.length + 1 ) + " Ātrākie laiki.");
             for (int i = 0; i < sakartoti_aug_sec_rez.length; i++){
-                System.out.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+                System.out.println((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
             }
         } else if (sakartoti_aug_sec_rez.length >= 5){
             System.out.print(5 + " Ātrākie laiki.\n");
             for (int i = 0; i < 5; i++){
-                System.out.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i] + "\n");
+                System.out.println((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
             } 
         } else {
             System.out.print("Rezultāti nav atrasti!");

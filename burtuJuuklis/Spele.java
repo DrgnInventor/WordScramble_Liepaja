@@ -48,23 +48,24 @@ public class Spele {
 
         }
 
-    public void guessName(Scanner datuIevade){
-        String minejums = new String("");
-        System.out.print("Apsveicu atradāt visus apslēptos vārdus burtu jūklī! \n");
-        System.out.print("Tagad jums jātmin vārds ko veido atminēto vārdu sākuma burti! \n \n \n");
-        do {
-            System.out.print("Atminētie vārdi:\n");
-            ad.getAtminetieVardi();
-            System.out.print("\n\n\n");
-            System.out.print("Kas ir apslēptais vārds?\n");
-            minejums = datuIevade.next();
-            if ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase())){
-            } else {
-                System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
-            }
-        } while (!(minejums.toLowerCase().equals(apsleptaisVards.toLowerCase())));
-        sp.beigu_laiks();
-    }
+        public void guessName(){
+            String minejums = new String("");
+            Scanner s = new Scanner(System.in);
+            System.out.print("Apsveicu atradāt visus apslēptos vārdus burtu jūklī! \n");
+            System.out.print("Tagad jums jātmin vārds ko veido atminēto vārdu sākuma burti! \n \n \n");
+            do {
+                System.out.print("Atminētie vārdi:\n");
+                ad.getAtminetieVardi();
+                System.out.print("\n\n\n");
+                System.out.print("Kas ir apslēptais vārds?\n");
+                minejums = s.next();
+                if ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase())){
+                } else {
+                    System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
+                }
+            } while ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase()));
+            sp.beigu_laiks();
+        }
 
     public void endGame(){
     System.out.print("Malacis " + playerName + "!\n");
