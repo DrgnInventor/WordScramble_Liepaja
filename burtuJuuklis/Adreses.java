@@ -58,12 +58,12 @@ public class Adreses {
                 beigas_kolona = varda_garums + kolona;
                 break;
             case 1:
-                beigas_rinda = varda_garums + rinda;
+                beigas_rinda = varda_garums + rinda - 1;
                 beigas_kolona = kolona;
                 break;
             case 2:
-                beigas_rinda = varda_garums + rinda;
-                beigas_kolona = varda_garums + kolona;
+                beigas_rinda = varda_garums + rinda - 1;
+                beigas_kolona = varda_garums + kolona - 1;
                 break;
         }
         vrtb = new Vertibas(vards, virziens, rinda, kolona, beigas_rinda, beigas_kolona);
@@ -73,7 +73,7 @@ public class Adreses {
     public boolean salidzinatKoordinates(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas){
         //salīdzina dotās koordinātas ar tām, kas vērtību rindā, atgriež true or false atbilstoši
         int kolona_sakums = getSkaitlis(burts_sakums);
-        int kolona_beigas = getSkaitlis(burts_beigas) + 1;
+        int kolona_beigas = getSkaitlis(burts_beigas);
         boolean tr = true;
         for(int i = 0; i < rindaVertibam.size(); i++){
             int sakums_rinda = rindaVertibam.get(i).getSakumsRinda();
