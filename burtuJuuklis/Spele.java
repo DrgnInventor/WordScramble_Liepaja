@@ -6,7 +6,7 @@ public class Spele {
     
     public Tabula tb = new Tabula();
     public Lasitajs ls = new Lasitajs();
-    public BurtuJuklis bj = new BurtuJuklis(3, 10);
+    public BurtuJuklis bj = new BurtuJuklis(30, 10);
     public Adreses ad = new Adreses();
     public Speletajs sp;
     public Interfeis intface = new Interfeis();

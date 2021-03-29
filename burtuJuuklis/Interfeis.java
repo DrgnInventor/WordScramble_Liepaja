@@ -71,9 +71,11 @@ public class Interfeis {
                     System.out.println("Tu esi atradis: ");
                     adr.getAtminetieVardi();
                     i--; //Moš pritējam tos kas nav atrasti : Pauls
+                } else {
+                    System.out.println("Atkartojas, kringe.");
                 }
 			} else {
-				System.out.println("Tu jau atminēji.");
+				System.out.println("Nepareizi, Lasīt māki?");
 			}
 
 		} while (i != 0);
