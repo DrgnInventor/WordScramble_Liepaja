@@ -14,15 +14,6 @@ public class Rezultati {
     public String dokuments = "visi_rezultati.txt"; // rezultatu uzglabasanas dokumenta nosaukums IMPORTANT var izveidot sistēmu kur ievada savu nosuakumu tam dokumentam, vai var nomainīt ja ir vēlme
     public ArrayList<String> visi_rezultāti = new ArrayList<>(); // glaba nolasitos rezultatus no dokumenta
     public String[] sakartoti_aug_sec_rez; // glaba rezultatus sakartotus augosa seciba
-    public Ertak e = new Ertak();
-    
-    public static void main(String[] args, long spel_rez, String vards) {
-        Rezultati ls = new Rezultati();
-        ls.rezultatu_uzskaite(spel_rez,vards);
-        ls.labakie_rezultati();
-        ls.dzēs_rezultātus();
-        ls.paradiLabakosRezultatus();
-      }
 
     public void rezultatu_uzskaite(long speletaja_rezultats, String vards){
         SimpleDateFormat formatter= new SimpleDateFormat("mm:ss"); // formate ms doto laiku minūtes: sekundes
@@ -111,20 +102,20 @@ public class Rezultati {
         }
 }
     public void paradiLabakosRezultatus(){
-        Rezultati rez2 = new Rezultati();
-        rez2.labakie_rezultati();
+        labakie_rezultati();
+
         if ( 0 < sakartoti_aug_sec_rez.length && sakartoti_aug_sec_rez.length < 5){
-            e.print((sakartoti_aug_sec_rez.length + 1 ) + " Ātrākie laiki.");
+            System.out.println((sakartoti_aug_sec_rez.length + 1 ) + " Ātrākie laiki.");
             for (int i = 0; i < sakartoti_aug_sec_rez.length; i++){
-                e.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+                System.out.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
             }
         } else if (sakartoti_aug_sec_rez.length >= 5){
-            e.print((5) + " Ātrākie laiki.");
+            System.out.print(5 + " Ātrākie laiki.\n");
             for (int i = 0; i < 5; i++){
-                e.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+                System.out.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i] + "\n");
             } 
         } else {
-            e.print("Rezultāti nav atrasti!");
+            System.out.print("Rezultāti nav atrasti!");
         }
     
     }

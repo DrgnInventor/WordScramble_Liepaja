@@ -11,7 +11,7 @@ public class Galvenais {
         sp.startGame(datuIevade);
         sp.guessName(datuIevade);
         sp.endGame();
-        sp.gameOptions(datuIevade);
+        sp.gameOptions();
         datuIevade.close();
     }
 }
