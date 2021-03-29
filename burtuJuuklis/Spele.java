@@ -75,7 +75,7 @@ public class Spele {
     public void gameOptions(Scanner datuIevade){
     e.print("Vai vēlaties redzēt labākos rezultātus?" + "\n");
     e.print("****** \nJ - Jā \nN - Nē \n"); 
-    if ((datuIevade.nextLine()).equals("J")){
+    if (datuIevade.nextLine().equals("J")){
         rez.paradiLabakosRezultatus();
         e.print("\n\n\nSpēles beigas.");
     } else {
