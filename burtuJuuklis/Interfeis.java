@@ -8,8 +8,7 @@ public class Interfeis {
 		public  int y = 4;
 	
     
-    public void userInput(BurtuJuklis jk, Adreses adr, Tabula t) { // moska outputtot 1-9 vai ko (cipars atbilst nosaukuma id)
-        Scanner keyboard = new Scanner(System.in);
+    public void userInput(BurtuJuklis jk, Adreses adr, Tabula t, Scanner keyboard) { // moska outputtot 1-9 vai ko (cipars atbilst nosaukuma id)
         boolean valid = false;
         char[] vienschar;
         char[] divichar;
@@ -32,7 +31,6 @@ public class Interfeis {
 
             if (adr.salidzinatKoordinates(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]))){
                 if(adr.checkAtminetieVardi(adr.rindaVertibam.get(adr.kartasNr).getVardsString())){
-                    System.out.println("Wow tu nu gan gudrs.");
                     jk.varduDzesana(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]), adr);
                     t.printTabula(jk.burtuJuklis);
                     adr.atminetieVardi.add(adr.rindaVertibam.get(adr.kartasNr).getVardsString());
@@ -40,7 +38,7 @@ public class Interfeis {
                     adr.getAtminetieVardi();
                     i = i - 1; 
                 }else{
-                    System.out.println("atkartosana NAV zinasanu mate smh");
+                    System.out.println("Vārds jau atrasts.");
                 }
                 
             } else {
@@ -49,7 +47,6 @@ public class Interfeis {
 
         } while (i != 0);
         System.out.println("uzvara!!!");
-        keyboard.close();
         //parbaudit vai koordinatas atrodas nosaukums
         //ja atrodas nosaukums, izcelt vinu, un nonemt 1 no mainiga(?)
         //visu loopot lidz visi vardi atrasti

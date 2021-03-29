@@ -14,12 +14,14 @@ public class Rezultati {
     public String dokuments = "visi_rezultati.txt"; // rezultatu uzglabasanas dokumenta nosaukums IMPORTANT var izveidot sistēmu kur ievada savu nosuakumu tam dokumentam, vai var nomainīt ja ir vēlme
     public ArrayList<String> visi_rezultāti = new ArrayList<>(); // glaba nolasitos rezultatus no dokumenta
     public String[] sakartoti_aug_sec_rez; // glaba rezultatus sakartotus augosa seciba
+    public Ertak e = new Ertak();
     
     public static void main(String[] args, long spel_rez, String vards) {
         Rezultati ls = new Rezultati();
         ls.rezultatu_uzskaite(spel_rez,vards);
         ls.labakie_rezultati();
         ls.dzēs_rezultātus();
+        ls.paradiLabakosRezultatus();
       }
 
     public void rezultatu_uzskaite(long speletaja_rezultats, String vards){
@@ -108,4 +110,22 @@ public class Rezultati {
             sakartoti_aug_sec_rez[i] = visi_rezultāti.get(rez_index_aug_sec[i]);
         }
 }
+    public void paradiLabakosRezultatus(){
+        Rezultati rez2 = new Rezultati();
+        rez2.labakie_rezultati();
+        if ( 0 < sakartoti_aug_sec_rez.length && sakartoti_aug_sec_rez.length < 5){
+            e.print((sakartoti_aug_sec_rez.length + 1 ) + " Ātrākie laiki.");
+            for (int i = 0; i < sakartoti_aug_sec_rez.length; i++){
+                e.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+            }
+        } else if (sakartoti_aug_sec_rez.length >= 5){
+            e.print((5) + " Ātrākie laiki.");
+            for (int i = 0; i < 5; i++){
+                e.print((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+            } 
+        } else {
+            e.print("Rezultāti nav atrasti!");
+        }
+    
+    }
 }
