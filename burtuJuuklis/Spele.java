@@ -60,10 +60,11 @@ public class Spele {
                 System.out.print("Kas ir apslēptais vārds?\n");
                 minejums = s.next();
                 if ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase())){
+                    System.out.println("Uzminējāt!");
                 } else {
                     System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
                 }
-            } while ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase()));
+            } while (!(minejums.toLowerCase().equals(apsleptaisVards.toLowerCase())));
             sp.beigu_laiks();
         }
 
