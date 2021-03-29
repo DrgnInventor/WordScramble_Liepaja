@@ -31,7 +31,7 @@ public class Spele {
         e.print("Veiksmi spēlē " + tempName + "!\n\n");
         playerName = new String(tempName);
         sp = new Speletajs(playerName);// dumb code
-    };
+    }
 
     public void startGame(Scanner datuIevade){
         intface.x = bj.platums;
@@ -47,7 +47,7 @@ public class Spele {
                     e.print("Kautkas nestrādā.");
                 }
 
-        };
+        }
 
     public void guessName(Scanner datuIevade){
         String minejums = new String("");
@@ -70,17 +70,16 @@ public class Spele {
     public void endGame(){
     e.print("Malacis " + playerName + "!\n");
     e.print("Spēli laiks: " + sp.speletais_laiks + "\n");
-    };
-    
+    }
+
     public void gameOptions(Scanner datuIevade){
     e.print("Vai vēlaties redzēt labākos rezultātus?" + "\n");
-    e.print("****** \nJ - Jā \nN - Nē \n");
-    String izveele = datuIevade.next();
-    if (izveele.equals("J")){
+    e.print("****** \nJ - Jā \nN - Nē \n"); 
+    if ((datuIevade.nextLine()).equals("J")){
         rez.paradiLabakosRezultatus();
         e.print("\n\n\nSpēles beigas.");
     } else {
         e.print("Spēles beigas.");
     }
-    };
+    }
 }

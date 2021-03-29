@@ -4,77 +4,110 @@ import java.util.Scanner;
 
 public class Interfeis {
 	
-		public  int x = 5; //pagaidu vertibas
-		public  int y = 4;
+	public int x;
+	public int y;
 	
-    
-    public void userInput(BurtuJuklis jk, Adreses adr, Tabula t, Scanner keyboard) { // moska outputtot 1-9 vai ko (cipars atbilst nosaukuma id)
-        boolean valid = false;
-        char[] vienschar;
-        char[] divichar;
-        int i = adr.rindaVertibam.size();
-        do {
-            do {
-                    System.out.print("Ievadi pirmo koordinatu (1A formata): ");
-                    String viens = keyboard.next();
-                    vienschar = viens.toCharArray(); // sadala string uz char masivu
-                    valid = checkInput(vienschar); // parbauda vai koordinata ir pareizi uzrakstita
-            } while (!valid);
-            vienschar[1] = Character.toUpperCase(vienschar[1]); // parliecinas ka burts ir pareiza sintaksa
-            do {
-                    System.out.print("Ievadi otro koordinatu (1A formata): ");
-                    String divi = keyboard.next();
-                    divichar = divi.toCharArray(); // sadala string uz char masivu
-                    valid = checkInput(divichar);
-            } while (!valid);
-            divichar[1] = Character.toUpperCase(divichar[1]);
+	public void userInput(BurtuJuklis jk, Adreses adr, Tabula t, Scanner keyboard) {
+		boolean valid = false;
+		//char[] vienschar;
+		//char[] divichar;
+		//int vienscipari;
+		//int divicipari;
+		char viensburts;
+		char diviburts;
+		int viensskaitlis = 0;
+		int diviskaitlis = 0;
+		int i = adr.rindaVertibam.size();
 
-            if (adr.salidzinatKoordinates(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]))){
+		do {
+			do {
+				System.out.print("Ievadi pirmo koordinatu (A1 formata): ");
+				String viens = keyboard.next();
+				viensburts = viens.charAt(0);
+				try {
+				viensskaitlis = Integer.parseInt(viens.substring(1));
+				} catch (NumberFormatException e) {
+					System.out.println("Koordinātā jāievada atbilstošā formātā!");
+					continue;
+				}
+				//if (isNan(viensskaitlis)) {
+
+				//}
+				//vienschar = viens.toCharArray(); // sadala string uz char masivu
+				valid = checkInput(viensburts, viensskaitlis); // parbauda vai koordinata ir pareizi uzrakstita
+			} while (!valid);
+			viensburts = Character.toUpperCase(viensburts); // parliecinas ka burts ir pareiza sintaksa
+			valid = false;
+			do {
+				System.out.print("Ievadi otro koordinatu (A1 formata): ");
+				String divi = keyboard.next();
+				diviburts = divi.charAt(0);
+				try {
+					diviskaitlis = Integer.parseInt(divi.substring(1));
+				} catch (NumberFormatException e) {
+					System.out.println("Koordinātā jāievada atbilstošā formātā!");
+					continue;
+				}
+				//divichar = divi.toCharArray(); // sadala string uz char masivu
+				valid = checkInput(diviburts, diviskaitlis);
+			} while (!valid);
+			diviburts = Character.toUpperCase(diviburts);
+
+			/*if (y > 10) {
+				String temp = ("" + vienschar[1] + vienschar[2]);
+				vienscipari = Integer.parseInt(temp);
+				temp = ("" + divichar[1] + divichar[2]);
+				divicipari = Integer.parseInt(temp);
+			} else {
+				vienscipari = Character.getNumericValue(vienschar[1]);
+				divicipari = Character.getNumericValue(divichar[1]);
+			}*/
+			
+			if (adr.salidzinatKoordinates(viensburts, viensskaitlis, diviburts, diviskaitlis)){
                 if(adr.checkAtminetieVardi(adr.rindaVertibam.get(adr.kartasNr).getVardsString())){
-                    jk.varduDzesana(vienschar[1], Character.getNumericValue(vienschar[0]), divichar[1], Character.getNumericValue(divichar[0]), adr);
+                    jk.varduDzesana(viensburts, viensskaitlis, diviburts, diviskaitlis, adr);
                     t.printTabula(jk.burtuJuklis);
                     adr.atminetieVardi.add(adr.rindaVertibam.get(adr.kartasNr).getVardsString());
                     System.out.println("Tu esi atradis: ");
                     adr.getAtminetieVardi();
-                    i = i - 1; 
-                }else{
-                    System.out.println("Vārds jau atrasts.");
+                    i--; //Moš pritējam tos kas nav atrasti : Pauls
                 }
-                
-            } else {
-                System.out.println("nepareizi");
-            }
+			} else {
+				System.out.println("Tu jau atminēji.");
+			}
 
-        } while (i != 0);
-        System.out.println("uzvara!!!");
-        //parbaudit vai koordinatas atrodas nosaukums
-        //ja atrodas nosaukums, izcelt vinu, un nonemt 1 no mainiga(?)
-        //visu loopot lidz visi vardi atrasti
-        //ielikt mineshanu vardam
-    }
-
-    public boolean checkInput(char[] masivs) {
-        boolean valid = true;
-        //printTabula?()
-        if (masivs.length > 2 || masivs.length < 2) { // parbauda vai ir tikai 2 rakstzimes
-                System.out.println("Koordinatai nepieciesamas 2 rakstzimes!");
-                valid = false;
-        } else if (!(Character.isDigit(masivs[0]))) {  // parbauda vai pirma rakstzime koordinata ir cipars
-                System.out.println("Pirmajai rakstzimei jabut ciparam.");
-                valid = false;
-        } else if (!((Character.getNumericValue(masivs[0]) > 0) && !(Character.getNumericValue(masivs[0]) > x)))  { // parbauda vai cipars ietilpst dotajos tabulas izmeros
-                System.out.println("Cipars neietilpst tabulas koordinatu ietvaros.");
-                valid = false;
-        } else if (!(Character.isLetter(masivs[1]))) { //piarbauda vai parbauda vai otra rakstzime koordinata ir burts
-                System.out.println("Otrajai rakstzimei jabut burtam.");
-                valid = false;
-        } else if (false) { //faking vajadzetu te iepist ka parbauda vai atbilstosh burts vai ne
-
-        }
-        return valid;
-    }
-
-    }
+		} while (i != 0);
+        System.out.println("Tu uzvarēji!");
+	}
+	
+	public boolean checkInput(char burts, int skaitlis) {
+		boolean valid = true;
+		//printTabula?()
+		/*if (y > 10  && !(masivs.length > 2 || masivs.length < 3)){
+			System.out.println("Koordinatai nepieciesamas 2 vai 3 rakstzimes!");
+			valid = false;
+		} else if (y <= 10 && (masivs.length > 2 || masivs.length < 2)) { // parbauda vai ir tikai 2 rakstzimes
+			System.out.println("Koordinatai nepieciesamas 2 rakstzimes!");
+			valid = false;
+		} else */ 
+		if (!(Character.isLetter(burts))) { //parbauda vai pirma rakstzime koordinata ir burts
+			System.out.println("Pirmajai rakstzimei jābut burtam.");
+			valid = false;
+		} else if (Character.getNumericValue(burts) >= 10 + x) { //parbauda vai burts ietilpst dotajos tabulas izmeros
+			System.out.println("Burts neiekļaujas tabulas koordinātu ietvaros.");
+			valid = false;
+		} 
+		//else if (!(Character.isDigit(skaitlis))) {  // parbauda vai otra rakstzime koordinata ir cipars
+		//	System.out.println("Otrajai rakstzimei jabut ciparam.");
+		//	valid = false;
+		//} 
+		else if (skaitlis <= 0 || skaitlis >= y)  { // parbauda vai cipars ietilpst dotajos tabulas izmeros
+			System.out.println("Cipars neiekļaujas tabulas koordinātu ietvaros.");
+			valid = false;
+		}
+		return valid;
+	}
+}
 		//tabula izprintajas
 		//tiek paradita iepriekseja kluda rakstitai komandai
 		//tiek prasits user input
