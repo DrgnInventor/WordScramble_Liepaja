@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,8 +15,7 @@ public class Rezultati {
     public String[] sakartoti_aug_sec_rez; // glaba rezultatus sakartotus augosa seciba
     private Boolean rezultatuFileKorekts = true;
 
-    public void rezultatu_uzskaite(long speletaja_rezultats, String vards){
-        SimpleDateFormat formatter= new SimpleDateFormat("mm:ss"); // formate ms doto laiku minūtes: sekundes
+    public void rezultatu_uzskaite(String speletaja_rezultats, String vards){
         try {
             File visi_rezultati = new File(dokuments);
             if (visi_rezultati.createNewFile()) { // Pārbauda vai ir dokluments ja nav uztaisa.
@@ -30,7 +28,7 @@ public class Rezultati {
           }
           try {
             FileWriter rezultatu_pierakstitajs = new FileWriter(dokuments, true);
-            rezultatu_pierakstitajs.write(vards + " > " + formatter.format(speletaja_rezultats) + "\n"); // pieraksta rezultātus
+            rezultatu_pierakstitajs.write(vards + " > " + speletaja_rezultats + "\n"); // pieraksta rezultātus
             rezultatu_pierakstitajs.close();
         } catch (IOException e) {
             e.printStackTrace();

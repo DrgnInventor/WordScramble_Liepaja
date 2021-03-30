@@ -4,26 +4,36 @@ import java.text.SimpleDateFormat;
 
 public class Speletajs {
     
-    public Long sakuma_laiks; //sakuma laiks ms
-    public Long beigu_laiks; // beigu laiks ms
-    public Long laiks_ms; // glaba laiku ms
-    public String vards; // glaba vardu
-    public String speletais_laiks; // speltais laiks
-    public Rezultati rez = new Rezultati();
+    public String vards;
+    public String speletais_laiks;
+    
+    private Long sakuma_laiks;
+    private Long beigu_laiks;
+    private Long laiks_ms;
+    private Rezultati rez = new Rezultati();
+    
     public Speletajs(String vards) {
         this.vards = vards;
       }
 
+    /**
+     * Publsiki izmantotās metodes.
+     * sak_laiks() uzņem spēles sākuma laiku
+     * beigu_laiks() uzņem spēles beigu laiku, aprēķina spēles laiku, pieraksta rezultātu
+     */
     public void sak_laiks(){
-        sakuma_laiks = System.currentTimeMillis(); // uznem sakuma laiku
+        sakuma_laiks = System.currentTimeMillis();
     }
 
     public void beigu_laiks(){
-        SimpleDateFormat formater_brrrr = new SimpleDateFormat("mm:ss");
-        beigu_laiks = System.currentTimeMillis(); // uznem beigu laiku
+        beigu_laiks = System.currentTimeMillis();
+        
         Long speles_laiks = beigu_laiks - sakuma_laiks; // aprekina speles laiku
         laiks_ms = speles_laiks;
-        rez.rezultatu_uzskaite(laiks_ms, vards);
+         
+        SimpleDateFormat formater_brrrr = new SimpleDateFormat("mm:ss");
         speletais_laiks = formater_brrrr.format(laiks_ms);
+
+        rez.rezultatu_uzskaite(speletais_laiks, vards);
     }
 }
