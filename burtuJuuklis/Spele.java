@@ -40,7 +40,7 @@ public class Spele {
 
             if(bj.tabulaDer){//parbauda vai rezgis ir izdevies
                 tb.printTabula(brtj);
-                sp.sak_laiks(); // speles sakums
+                sp.sakLaiks(); // speles sakums
                 intface.userInput(bj, ad, tb, datuIevade);
                 } else {
                     System.out.print("Kautkas nestrādā.");
@@ -65,7 +65,7 @@ public class Spele {
                     System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
                 }
             } while (!(minejums.toLowerCase().equals(apsleptaisVards.toLowerCase())));
-            sp.beigu_laiks();
+            sp.beiguLaiks();
         }
 
     public void endGame(){
