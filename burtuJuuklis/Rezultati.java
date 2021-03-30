@@ -56,7 +56,7 @@ public class Rezultati {
     }        
         
 
-    public void labakieRezultati() {
+    private void labakieRezultati() {
         try {
             File rezDokuments = new File(dokuments);
             Scanner rezLasitajs = new Scanner(rezDokuments);
