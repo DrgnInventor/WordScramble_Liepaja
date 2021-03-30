@@ -22,7 +22,12 @@ public class Adreses {
         }
         
     }
-    public boolean checkAtminetieVardi(String s){
+    public void getNeatminetieVardi(){ //izprinte neatminetos vardus no vertibu rindas
+        for(int i = 0; i < rindaVertibam.size(); i++){
+            System.out.println(rindaVertibam.get(i).getVardsString());
+        }
+    }
+    public boolean checkAtminetieVardi(String s){ //parbauda vai vards neatkartojas
         boolean tr = true;
         for(int i = 0; i < atminetieVardi.size(); i++){
             if(atminetieVardi.get(i).equals(s)){
@@ -32,7 +37,7 @@ public class Adreses {
         }
         return tr;
     }
-    public void getAtminetieVardi(){
+    public void getAtminetieVardi(){ //izprinte atminetos vardus
         int size = atminetieVardi.size() - 1;
         for(int i = size; i >= 0; i--){
             System.out.println(atminetieVardi.get(i));

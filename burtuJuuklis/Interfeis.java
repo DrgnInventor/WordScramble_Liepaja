@@ -63,20 +63,22 @@ public class Interfeis {
 				divicipari = Character.getNumericValue(divichar[1]);
 			}*/
 			
-			if (adr.salidzinatKoordinates(viensburts, viensskaitlis, diviburts, diviskaitlis)){
-                if(adr.checkAtminetieVardi(adr.rindaVertibam.get(adr.kartasNr).getVardsString())){
-                    jk.varduDzesana(viensburts, viensskaitlis, diviburts, diviskaitlis, adr);
-                    t.printTabula(jk.burtuJuklis);
-                    adr.atminetieVardi.add(adr.rindaVertibam.get(adr.kartasNr).getVardsString());
-                    System.out.println("Tu esi atradis: ");
-                    adr.getAtminetieVardi();
-                    i--; //Moš pritējam tos kas nav atrasti : Pauls
+            if (adr.salidzinatKoordinates(viensburts, viensskaitlis, diviburts, diviskaitlis)){ //parbauda vai ievaditas koordinates ir pareizas
+                int kartas_nr = adr.kartasNr; //koordinasu indekss vertibu rinda
+                if(adr.checkAtminetieVardi(adr.rindaVertibam.get(kartas_nr).getVardsString())){ //parbauda vai vards atkartojas
+                    jk.varduDzesana(viensburts, viensskaitlis, diviburts, diviskaitlis, adr); //parvers vardus uz lielajiem burtiem
+                    t.printTabula(jk.burtuJuklis); //izprinte tabulu
+                    adr.atminetieVardi.add(adr.rindaVertibam.get(kartas_nr).getVardsString()); //pievieno atmineto vardu rindai
+                    System.out.println("Tev vēl jāatrod: ");
+                    adr.rindaVertibam.remove(kartas_nr); //nonem atmineto vardu no vertibu rindas
+                    adr.getNeatminetieVardi(); //izprinte neatminetos vardus
+                    i--; 
                 } else {
                     System.out.println("Atkartojas, kringe.");
                 }
-			} else {
-				System.out.println("Nepareizi, Lasīt māki?");
-			}
+            } else {
+                    System.out.println("Nepareizi, Lasīt māki?");
+            }
 
 		} while (i != 0);
         System.out.println("Tu uzvarēji!");
