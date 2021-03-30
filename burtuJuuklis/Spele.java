@@ -12,15 +12,19 @@ public class Spele {
     private Interfeis intface = new Interfeis();
     private Rezultati rez = new Rezultati();
     private static String playerName;
-    private String apsleptaisVards;
+    private String apsleptaisVards1;
+    private String apsleptaisVards2;
 
     /**
-     * @param apsleptaisVards vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
-     * @param slepenaisVards norāda apslēpto vārdu ,kas jātmin.
+     * @param apsleptaisVards1 !!Bez garumzīmēm!! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
+     * @param slepenaisVards1 norāda apslēpto vārdu ,kas jātmin.
+     * @param apsleptaisVards2 !!Ar garumzīmēm {garumzimju vieta nav burta}!! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
+     * @param slepenaisVards2 norāda apslēpto vārdu ,kas jātmin.
      */
 
-    public Spele(String slepenaisVards) {
-        this.apsleptaisVards = slepenaisVards;
+    public Spele(String slepenaisVards1, String slepenaisVards2) {
+        this.apsleptaisVards1 = slepenaisVards1;
+        this.apsleptaisVards2 = slepenaisVards2;
     }
 
     /**
@@ -92,13 +96,13 @@ public class Spele {
             System.out.print("Kas ir apslēptais vārds?\n");
             minejums = s.nextLine();
             
-            if ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase())){
+            if ((minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))||(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase()))){
                 System.out.println("Uzminējāt!");
                 } else {
                 System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
                 }
             
-            } while (!(minejums.toLowerCase().equals(apsleptaisVards.toLowerCase())));
+            } while (!(minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))||!(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase())));
         }
     
     //Pabeidz spēli, pasaka spēlētājam spēlēto laiku
