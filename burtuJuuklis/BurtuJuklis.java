@@ -141,7 +141,7 @@ public class BurtuJuklis {
         for (int i = 0; i < burtuJuklis.length; ++i) { // aizpilda tuksas vietas
             for(int j = 0; j < burtuJuklis[i].length; ++j) {
                 if(burtuJuklis[i][j] == 0){
-                    burtuJuklis[i][j] = '0';//abcdburti[r.nextInt(abcdburti.length)];
+                    burtuJuklis[i][j] = abcdburti[r.nextInt(abcdburti.length)];
                 }
             }
         }

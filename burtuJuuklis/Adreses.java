@@ -60,7 +60,7 @@ public class Adreses {
         switch(virziens){
             case 0:
                 beigas_rinda = rinda;
-                beigas_kolona = varda_garums + kolona -                                                                                                 1;
+                beigas_kolona = varda_garums + kolona - 1;
                 break;
             case 1:
                 beigas_rinda = varda_garums + rinda - 1;

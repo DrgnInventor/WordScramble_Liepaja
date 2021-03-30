@@ -75,10 +75,13 @@ public class Interfeis {
                     adr.getNeatminetieVardi(); //izprinte neatminetos vardus
                     i--; 
                 } else {
+					t.printTabula(jk.burtuJuklis); //izprinte tabulu
                     System.out.println("Atkartojas, kringe.");
+					
                 }
             } else {
-                    System.out.println("Nepareizi, Lasīt māki?");
+				t.printTabula(jk.burtuJuklis); //izprinte tabulu
+				System.out.println("Nepareizi, Lasīt māki?");
             }
 
 		} while (i != 0);
