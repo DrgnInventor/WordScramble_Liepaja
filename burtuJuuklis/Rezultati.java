@@ -14,6 +14,7 @@ public class Rezultati {
     public String dokuments = "visi_rezultati.txt"; // rezultatu uzglabasanas dokumenta nosaukums IMPORTANT var izveidot sistēmu kur ievada savu nosuakumu tam dokumentam, vai var nomainīt ja ir vēlme
     public ArrayList<String> visi_rezultaati = new ArrayList<>(); // glaba nolasitos rezultatus no dokumenta
     public String[] sakartoti_aug_sec_rez; // glaba rezultatus sakartotus augosa seciba
+    private Boolean rezultatuFileKorekts = true;
 
     public void rezultatu_uzskaite(long speletaja_rezultats, String vards){
         SimpleDateFormat formatter= new SimpleDateFormat("mm:ss"); // formate ms doto laiku minūtes: sekundes
@@ -29,7 +30,7 @@ public class Rezultati {
           }
           try {
             FileWriter rezultatu_pierakstitajs = new FileWriter(dokuments, true);
-            rezultatu_pierakstitajs.write("\n" + vards + " > " + formatter.format(speletaja_rezultats)); // pieraksta rezultātus
+            rezultatu_pierakstitajs.write(vards + " > " + formatter.format(speletaja_rezultats) + "\n"); // pieraksta rezultātus
             rezultatu_pierakstitajs.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,9 +56,8 @@ public class Rezultati {
             Scanner rezultātu_Lasītājs = new Scanner(rezultāti);
                 while (rezultātu_Lasītājs.hasNextLine())    {
                     String temp_thing = rezultātu_Lasītājs.nextLine();
-                    if (!(temp_thing.equals(null))){
                     visi_rezultaati.add(temp_thing); // Nolasa rezultātus
-                }}
+                }
             rezultātu_Lasītājs.close();
             } 
         catch (FileNotFoundException e)
@@ -72,13 +72,22 @@ public class Rezultati {
             {
                 String laiks = visi_rezultaati.get(i); // paņem pirmo rezultātu
                 int index = laiks.indexOf(">") + 2; // atrod laiku un nolasa
-                System.out.println(index + " " + laiks);
-                String min_sek = laiks.substring(index); // dabūt mm:ss no rezultāta
-                LocalTime localTime = LocalTime.parse(min_sek); // pārveido string mm:ss uz local time object
-                int millis = localTime.toSecondOfDay() * 1000; // pārveido doto laiku mm:ss formātā uz ms
-                apstradati_rezultati[i] = millis; // ievieto laiku izteiktu ms
+                try {
+                    String min_sek = laiks.substring(index); // dabūt mm:ss no rezultāta
+                    LocalTime localTime = LocalTime.parse(min_sek); // pārveido string mm:ss uz local time object
+                    int millis = localTime.toSecondOfDay() * 1000; // pārveido doto laiku mm:ss formātā uz ms
+                    apstradati_rezultati[i] = millis; // ievieto laiku izteiktu ms
+                    rez_index_aug_sec[i] = i; // ievieto sakuma index vērtības masīvā
+                } catch (StringIndexOutOfBoundsException e) {
+                    System.out.println("Rezultāti nepareizi formatēti. Rezultātu dokumentā \"" + dokuments + "\" nevar atrasties tukšas līnijas.");
+                    rezultatuFileKorekts = false;
+                    break;
+                }
+                
+                
+                
 
-                rez_index_aug_sec[i] = i; // ievieto sakuma index vērtības masīvā
+                
             }
         // Šis te tālāk ir Bubble sort algoritms kas sorto pēc vērtībām un paralēli maina indexus lai var atrast pareizos rezultātu String no visi_rezultāti
         int n = apstradati_rezultati.length; 
@@ -106,19 +115,20 @@ public class Rezultati {
 }
     public void paradiLabakosRezultatus(){
         labakie_rezultati();
-
-        if ( 0 < sakartoti_aug_sec_rez.length && sakartoti_aug_sec_rez.length < 5){
-            System.out.println((sakartoti_aug_sec_rez.length + 1 ) + " Ātrākie laiki.");
-            for (int i = 0; i < sakartoti_aug_sec_rez.length; i++){
-                System.out.println((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
-            }
-        } else if (sakartoti_aug_sec_rez.length >= 5){
-            System.out.print(5 + " Ātrākie laiki.\n");
-            for (int i = 0; i < 5; i++){
-                System.out.println((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+        if (rezultatuFileKorekts){
+            if ( 0 < sakartoti_aug_sec_rez.length && sakartoti_aug_sec_rez.length < 5){
+                System.out.println((sakartoti_aug_sec_rez.length) + " Ātrākie laiki.");
+                for (int i = 0; i < sakartoti_aug_sec_rez.length; i++){
+                    System.out.println((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+                }
+            } else if (sakartoti_aug_sec_rez.length >= 5){
+                System.out.print(5 + " Ātrākie laiki.\n");
+                for (int i = 0; i < 5; i++){
+                    System.out.println((1 + i)+ ". " + sakartoti_aug_sec_rez[i]);
+                } 
+            } else {
+                System.out.print("Rezultāti nav atrasti!");
             } 
-        } else {
-            System.out.print("Rezultāti nav atrasti!");
         }
     
     }

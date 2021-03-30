@@ -50,7 +50,7 @@ public class Spele {
 
         public void guessName(){
             String minejums = new String("");
-            Scanner s = new Scanner(System.in);
+            Scanner z = new Scanner(System.in);
             System.out.print("Apsveicu atradāt visus apslēptos vārdus burtu jūklī! \n");
             System.out.print("Tagad jums jātmin vārds ko veido atminēto vārdu sākuma burti! \n \n \n");
             do {
@@ -58,7 +58,7 @@ public class Spele {
                 ad.getAtminetieVardi();
                 System.out.print("\n\n\n");
                 System.out.print("Kas ir apslēptais vārds?\n");
-                minejums = s.nextLine();
+                minejums = z.nextLine();
                 if ((minejums.toLowerCase()).equals(apsleptaisVards.toLowerCase())){
                     System.out.println("Uzminējāt!");
                 } else {
@@ -66,6 +66,7 @@ public class Spele {
                 }
             } while (!(minejums.toLowerCase().equals(apsleptaisVards.toLowerCase())));
             sp.beigu_laiks();
+            z.close();
         }
 
     public void endGame(){
