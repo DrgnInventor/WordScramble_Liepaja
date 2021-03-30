@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Lasitajs {
 
     private ArrayList<String> vardiLst = new ArrayList<>();
-    private String dokuments = "Dotie_Vārdi.txt";
+    private String dokuments = "Dotie_Vardi.txt";
     private String[] vardi;
 
     /** @param vardiLst nolasītie vārdi ArrayList formātā ,kas tiks apstrādāti.
@@ -33,13 +33,13 @@ public class Lasitajs {
       */
       
       try {
-            File Dotie_Vārdi = new File(dokuments);
-            Scanner Lasītājs = new Scanner(Dotie_Vārdi);
+            File Dotie_Vardi = new File(dokuments);
+            Scanner Lasiitajs = new Scanner(Dotie_Vardi);
 
-            while (Lasītājs.hasNextLine()) {
-              vardiLst.add((Lasītājs.nextLine()).toLowerCase());
+            while (Lasiitajs.hasNextLine()) {
+              vardiLst.add((Lasiitajs.nextLine()).toLowerCase());
               }
-            Lasītājs.close();
+            Lasiitajs.close();
             
             vardi = new String[vardiLst.size()];  
             
