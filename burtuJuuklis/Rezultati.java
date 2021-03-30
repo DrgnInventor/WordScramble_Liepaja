@@ -15,6 +15,22 @@ public class Rezultati {
     private ArrayList<String> visiRezultati = new ArrayList<>();
     private String[] sakartotiAugSecRez;
     
+/**
+ * @param dokuments glabā dokumenta nosaukumu
+ * @param rezultatuFileKorekts glabā boolean vērtību vai rezultātu dokuments pareizi formatēts
+ * @param visiRezultato  tur nolasītos rezultātus
+ * @param sakartotiAugSecRez glabā sakartotus augošā secībā rezultātus
+ * @param apstradatieRezultati glabā rezultātu laikus ms.
+ * @param rezIndexAugSec glabā rezultātu indexus atbilst apstradatieRezultati vērtībām. 
+ */
+
+    /**
+     * Publiskās metodes
+     * rezultatuUzskaite() pieraksta spelētāja rezultātu "dokuments"
+     * dzesRezultatus() izdzēš un izveido rezultātu dokumentu
+     * paradiLabakosRezultatus() izmanto labakierezultati() sakarto un tad izprintē labākos rezultātus. MAX rezultāti ko parāda ir līdz 5 labākie. 
+     */
+    
     public void rezultatuUzskaite(String speletaja_rezultats, String vards){
         try {
             File rezultatuDokuments = new File(dokuments);
