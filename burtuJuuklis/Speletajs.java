@@ -5,13 +5,19 @@ import java.text.SimpleDateFormat;
 public class Speletajs {
     
     public String vards;
-    public String speletais_laiks;
+    public String speletaisLaiks;
     
-    private Long sakuma_laiks;
-    private Long beigu_laiks;
-    private Long laiks_ms;
+    private Long sakumaLaiks;
+    private Long beiguLaiks;
+    private Long laiksMs;
     private Rezultati rez = new Rezultati();
     
+    /**
+     * @param speltais_laiks glabā spēles laiku String datu tipā formāts mm:ss
+     * @param beiguLaiks glabā ms laiku kad spēle tika beigta
+     * @param sakumaLaiks glaba ms laiku kad spēle tika sākta
+     */
+
     public Speletajs(String vards) {
         this.vards = vards;
       }
@@ -22,18 +28,18 @@ public class Speletajs {
      * beigu_laiks() uzņem spēles beigu laiku, aprēķina spēles laiku, pieraksta rezultātu
      */
     public void sakLaiks(){
-        sakuma_laiks = System.currentTimeMillis();
+        sakumaLaiks = System.currentTimeMillis();
     }
 
     public void beiguLaiks(){
-        beigu_laiks = System.currentTimeMillis();
+        beiguLaiks = System.currentTimeMillis();
         
-        Long speles_laiks = beigu_laiks - sakuma_laiks; // aprekina speles laiku
-        laiks_ms = speles_laiks;
+        Long speles_laiks = beiguLaiks - sakumaLaiks; // aprekina speles laiku
+        laiksMs = speles_laiks;
          
-        SimpleDateFormat formater_brrrr = new SimpleDateFormat("mm:ss");
-        speletais_laiks = formater_brrrr.format(laiks_ms);
+        SimpleDateFormat laikaFormatetajs = new SimpleDateFormat("mm:ss");
+        speletaisLaiks = laikaFormatetajs.format(laiksMs);
 
-        rez.rezultatuUzskaite(speletais_laiks, vards);
+        rez.rezultatuUzskaite(speletaisLaiks, vards);
     }
 }

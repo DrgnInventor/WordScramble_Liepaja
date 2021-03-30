@@ -70,7 +70,7 @@ public class Spele {
 
     public void endGame(){
     System.out.print("Malacis " + playerName + "!\n");
-    System.out.print("Spēli laiks: " + sp.speletais_laiks + "\n");
+    System.out.print("Spēli laiks: " + sp.speletaisLaiks + "\n");
     }
 
     public void gameOptions(){

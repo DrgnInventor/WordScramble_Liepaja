@@ -7,9 +7,8 @@ import java.util.Scanner;
 
 public class Lasitajs {
 
-    private ArrayList<String> vardiLst = new ArrayList<>(); // ArrayList ar vardiniem kas tiks apstradati
+    private ArrayList<String> vardiLst = new ArrayList<>();
     private String dokuments = "Dotie_Vārdi.txt";
-    // String[] vardi uztur Default vārdu vērtības ,lai spēle var funkcionēt pat ja doto vārdu dokuments nav.
     private String[] vardi = {
       "Dienvidu mols",
       "Austrumu forts",
@@ -20,6 +19,11 @@ public class Lasitajs {
       "Āmuļi",
       "Juliannas pagalms",
       "Amatnieku nams"};
+
+    /** @param vardiLst nolasītie vārdi ArrayList formātā ,kas tiks apstrādāti.
+    *   @param dokuments doto vārdu dokumenta nosaukums.
+    *   @param vardi string masīvs ,kas tiek padots tālāk burtujuuklim. !! Ja dokumenta nav, vai nevar atrast tiks izmantotas default vērtības masīvā.
+    */
 
     /*
     * Publiski pieejamās metodēs. 
