@@ -7,7 +7,8 @@ public class Interfeis {
 	public int x;
 	public int y;
 	
-	public void userInput(BurtuJuklis jk, Adreses adr, Tabula t, Scanner keyboard) {
+	public void userInput(BurtuJuklis jk, Adreses adr, Tabula t) {
+		Scanner keyboard = new Scanner(System.in);
 		boolean valid = false;
 		//char[] vienschar;
 		//char[] divichar;

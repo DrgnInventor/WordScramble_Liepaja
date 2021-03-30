@@ -16,9 +16,9 @@ public class Spele {
     private String apsleptaisVards2;
 
     /**
-     * @param apsleptaisVards1 !!Bez garumzīmēm!! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
+     * @param apsleptaisVards1 vard1s! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
      * @param slepenaisVards1 norāda apslēpto vārdu ,kas jātmin.
-     * @param apsleptaisVards2 !!Ar garumzīmēm {garumzimju vieta nav burta}!! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
+     * @param apsleptaisVards2 vard2s! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
      * @param slepenaisVards2 norāda apslēpto vārdu ,kas jātmin.
      */
 
@@ -62,7 +62,6 @@ public class Spele {
 
     //Sāk spēli izveidu burtujuukli un sāk spēles min;e;sanas ciklu
     public void startGame(){
-        Scanner datuIevade = new Scanner(System.in);
         intface.x = bj.platums;
         intface.y = bj.garums;
 
@@ -71,7 +70,7 @@ public class Spele {
         if(bj.tabulaDer){
             tb.printTabula(brtj);
             sp.sakLaiks();
-            intface.userInput(bj, ad, tb, datuIevade);
+            intface.userInput(bj, ad, tb);
             } else {
             System.out.print("Radās kļūme burtu jūkļa ģenerēšanā.");
             }
@@ -93,16 +92,15 @@ public class Spele {
             
             System.out.print("\n\n\n");
             
-            System.out.print("Kas ir apslēptais vārds?\n");
+            System.out.print("Kas ir apslēptais vārds?\nMINĒJUMU JĀVEIC BEZ GARUMZĪMĒM!\n");
             minejums = s.nextLine();
-            
             if ((minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))||(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase()))){
                 System.out.println("Uzminējāt!");
                 } else {
                 System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
                 }
             
-            } while (!(minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))||!(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase())));
+            } while (!(minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))&&!(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase())));
         }
     
     //Pabeidz spēli, pasaka spēlētājam spēlēto laiku
