@@ -45,7 +45,7 @@ public class Rezultati {
             System.out.println("Radās kļūme \"rezultatuUzskaite()\" > rezultatuDokuments\n");
             e.printStackTrace();
             }
-
+        // Pieraksta rezultātus ar doto formātu [vārds > mm:ss]
         try {
             FileWriter rezultatuPierakstitajs = new FileWriter(dokuments, true);
             
@@ -57,7 +57,7 @@ public class Rezultati {
             e.printStackTrace();
             }
     }
-
+    // Izdzēš un izveido rezultātu dokumentu
     public void dzesRezultatus() {
         try {
             File rezulDokuments = new File(dokuments); 
@@ -71,7 +71,7 @@ public class Rezultati {
             }
     }        
         
-
+    // Sakārto rezultātus augošā secībā
     private void labakieRezultati() {
         try {
             File rezDokuments = new File(dokuments);
@@ -91,7 +91,8 @@ public class Rezultati {
 
         int[] apstradatiRezultati = new int[visiRezultati.size()];
         int[] rezIndexAugSec = new int[visiRezultati.size()];
-          
+
+        // Iegūst ms laiku no rezultātiem.  
         for (int i = 0; i < visiRezultati.size(); i++) {
 
             String laiks = visiRezultati.get(i);
@@ -110,7 +111,7 @@ public class Rezultati {
                 break;
                 }  
             }
-
+        // Apstrādātos rezultātus sakārto augošā secībā
         int n = apstradatiRezultati.length; 
         for (int i = 0; i < n-1; i++)
             { 
@@ -136,9 +137,12 @@ public class Rezultati {
             }
     }
 
+    // Sakārto un tad izprintē labākos rezultātus (MAX 5)
     public void paradiLabakosRezultatus(){
+        //Sakārto
         labakieRezultati();
 
+        //Izprintē
         if (rezultatuFileKorekts){
             if ( 0 < sakartotiAugSecRez.length && sakartotiAugSecRez.length < 5){
                 System.out.println((sakartotiAugSecRez.length) + " Ātrākie laiki.");
