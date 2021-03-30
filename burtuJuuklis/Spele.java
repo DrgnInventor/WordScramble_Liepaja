@@ -66,7 +66,6 @@ public class Spele {
                 }
             } while (!(minejums.toLowerCase().equals(apsleptaisVards.toLowerCase())));
             sp.beigu_laiks();
-            z.close();
         }
 
     public void endGame(){
@@ -78,7 +77,8 @@ public class Spele {
         Scanner s = new Scanner(System.in);
         System.out.print("Vai vēlaties redzēt labākos rezultātus?" + "\n");
         System.out.print("** \nJ - Jā \nN - Nē \n");
-        String izvele = s.next();
+        String izvele = s.nextLine();
+
         izvele = izvele.toUpperCase();
         if (izvele.equals("J")){
             rez.paradiLabakosRezultatus();
