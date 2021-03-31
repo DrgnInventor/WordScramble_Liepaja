@@ -8,8 +8,8 @@ public class BurtuJuklis {
     public int garums;
     public boolean tabulaDer = true; //glaba vai tabula ir riktiga izmēra
   public BurtuJuklis(int n, int m){
-    platums = m + 1;
-    garums = n;
+    platums = m;
+    garums = n + 1;
     burtuJuklis = new char[garums][platums];
   }
 
