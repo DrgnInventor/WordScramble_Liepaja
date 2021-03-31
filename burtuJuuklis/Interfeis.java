@@ -28,7 +28,7 @@ public class Interfeis {
 				try {
 				viensskaitlis = Integer.parseInt(viens.substring(1));
 				} catch (NumberFormatException e) {
-					System.out.println("Koordinātā jāievada atbilstošā formātā!");
+					System.out.println("Koordinata jaievada atbilstosa formata!");
 					continue;
 				}
 				//if (isNan(viensskaitlis)) {
@@ -46,7 +46,7 @@ public class Interfeis {
 				try {
 					diviskaitlis = Integer.parseInt(divi.substring(1));
 				} catch (NumberFormatException e) {
-					System.out.println("Koordinātā jāievada atbilstošā formātā!");
+					System.out.println("Koordinata jaievada atbilstosa formata!");
 					continue;
 				}
 				//divichar = divi.toCharArray(); // sadala string uz char masivu
@@ -70,22 +70,22 @@ public class Interfeis {
                     jk.varduDzesana(viensburts, viensskaitlis, diviburts, diviskaitlis, adr); //parvers vardus uz lielajiem burtiem
                     t.printTabula(jk.burtuJuklis); //izprinte tabulu
                     adr.atminetieVardi.add(adr.rindaVertibam.get(kartas_nr).getVardsString()); //pievieno atmineto vardu rindai
-                    System.out.println("Tev vēl jāatrod: ");
+                    System.out.println("Tev vel jaatrod: ");
                     adr.rindaVertibam.remove(kartas_nr); //nonem atmineto vardu no vertibu rindas
                     adr.getNeatminetieVardi(); //izprinte neatminetos vardus
                     i--; 
                 } else {
-					t.printTabula(jk.burtuJuklis); //izprinte tabulu
+                    t.printTabula(jk.burtuJuklis); //izprinte tabulu
                     System.out.println("Atkartojas, kringe.");
 					
                 }
             } else {
-				t.printTabula(jk.burtuJuklis); //izprinte tabulu
-				System.out.println("Nepareizi, Lasīt māki?");
+                t.printTabula(jk.burtuJuklis); //izprinte tabulu
+                System.out.println("Nepareizi, Lasit maki?");
             }
 
 		} while (i != 0);
-        System.out.println("Tu uzvarēji!");
+        System.out.println("Tu uzvareji!");
 	}
 	
 	public boolean checkInput(char burts, int skaitlis) {
@@ -99,10 +99,10 @@ public class Interfeis {
 			valid = false;
 		} else */ 
 		if (!(Character.isLetter(burts))) { //parbauda vai pirma rakstzime koordinata ir burts
-			System.out.println("Pirmajai rakstzimei jābut burtam.");
+			System.out.println("Pirmajai rakstzimei jabut burtam.");
 			valid = false;
 		} else if (Character.getNumericValue(burts) >= 10 + x) { //parbauda vai burts ietilpst dotajos tabulas izmeros
-			System.out.println("Burts neiekļaujas tabulas koordinātu ietvaros.");
+			System.out.println("Burts neieklaujas tabulas koordinatu ietvaros.");
 			valid = false;
 		} 
 		//else if (!(Character.isDigit(skaitlis))) {  // parbauda vai otra rakstzime koordinata ir cipars
@@ -110,7 +110,7 @@ public class Interfeis {
 		//	valid = false;
 		//} 
 		else if (skaitlis <= 0 || skaitlis >= y)  { // parbauda vai cipars ietilpst dotajos tabulas izmeros
-			System.out.println("Cipars neiekļaujas tabulas koordinātu ietvaros.");
+			System.out.println("Cipars neieklaujas tabulas koordinatu ietvaros.");
 			valid = false;
 		}
 		return valid;

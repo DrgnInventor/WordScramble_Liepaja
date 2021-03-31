@@ -3,12 +3,12 @@ package burtuJuuklis;
 import java.util.Random;
 
 public class BurtuJuklis {
-    private char[] abcdburti = {'a','a','a','a','ā','b','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž','-'};
+    private char[] abcdburti = {'a','a','a','a','b','b','c','c','d','e','e','f','g','g','h','i','i','j','k','k','l','l','m','n','n','o','p','r','s','s','t','u','u','v','z','z','-'};
     public char[][] burtuJuklis; //masivs kur kartot vardus
     private char[] burti; //masivs atseviskajiem burtiem
     public int platums; //burtu jukla lielums
     public int garums;
-    public boolean tabulaDer = true; //glabā vai tabula ir riktīgā izmērā
+    public boolean tabulaDer = true; //glaba vai tabula ir riktiga izmēra
   public BurtuJuklis(int n, int m){
     platums = m;
     garums = n;
@@ -111,14 +111,14 @@ public class BurtuJuklis {
         System.out.println("pls no");
         tabulaDer = false;
     }
-    if(platums <= 0 || garums <= 0){ //pārbauda vai dotie parametri nav 0 vai negatīvi
+    if(platums <= 0 || garums <= 0){ //parbauda vai dotie parametri nav 0 vai negativi
         tabulaDer = false;
-        System.out.println("lūdzu ievadi normālus skaitļus");
+        System.out.println("ludzu ievadi normalus skaitlus");
     }
     if(tabulaDer){
         for(int i = 0; i < vardiMasiva.length; i++){
             burtiMasiva = atseviskieBurti(vardiMasiva[i]); 
-            int skaititajs = 0; //skaita, cik reizes izmēģina atrast vārdam vietu
+            int skaititajs = 0; //skaita, cik reizes izmēģina atrast vardam vietu
             do{
                 int virziens = r.nextInt(3);
                 int lauks_kolona = (int)(Math.random()*(platums - 1) + 1); 
@@ -141,7 +141,7 @@ public class BurtuJuklis {
         for (int i = 0; i < burtuJuklis.length; ++i) { // aizpilda tuksas vietas
             for(int j = 0; j < burtuJuklis[i].length; ++j) {
                 if(burtuJuklis[i][j] == 0){
-                    burtuJuklis[i][j] = abcdburti[r.nextInt(abcdburti.length)];
+                    burtuJuklis[i][j] = '0';//abcdburti[r.nextInt(abcdburti.length)];
                 }
             }
         }
@@ -152,7 +152,7 @@ public class BurtuJuklis {
     return burtuJuklis;
     }
   
-    public void varduDzesana(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas, Adreses a){ //pārvērš burtus uz lielajiem burtiem
+    public void varduDzesana(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas, Adreses a){ //parvērš burtus uz lielajiem burtiem
         
         int kolona_sakums = a.getSkaitlis(burts_sakums);
         int kolona_beigas = a.getSkaitlis(burts_beigas);

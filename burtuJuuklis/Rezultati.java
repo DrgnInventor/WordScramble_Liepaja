@@ -16,19 +16,19 @@ public class Rezultati {
     private String[] sakartotiAugSecRez;
     
 /**
- * @param dokuments glabā dokumenta nosaukumu
- * @param rezultatuFileKorekts glabā boolean vērtību vai rezultātu dokuments pareizi formatēts
- * @param visiRezultato  tur nolasītos rezultātus
- * @param sakartotiAugSecRez glabā sakartotus augošā secībā rezultātus
- * @param apstradatieRezultati glabā rezultātu laikus ms.
- * @param rezIndexAugSec glabā rezultātu indexus atbilst apstradatieRezultati vērtībām. 
+ * @param dokuments glaba dokumenta nosaukumu
+ * @param rezultatuFileKorekts glaba boolean vertibu vai rezultatu dokuments pareizi formatets
+ * @param visiRezultato  tur nolasitos rezultatus
+ * @param sakartotiAugSecRez glaba sakartotus augosa seciba rezultatus
+ * @param apstradatieRezultati glaba rezultatu laikus ms.
+ * @param rezIndexAugSec glaba rezultatu indexus atbilst apstradatieRezultati vertibam. 
  */
 
     /**
-     * Publiskās metodes
-     * rezultatuUzskaite() pieraksta spelētāja rezultātu "dokuments"
-     * dzesRezultatus() izdzēš un izveido rezultātu dokumentu
-     * paradiLabakosRezultatus() izmanto labakierezultati() sakarto un tad izprintē labākos rezultātus. MAX rezultāti ko parāda ir līdz 5 labākie. 
+     * Publiskas metodes
+     * rezultatuUzskaite() pieraksta speletaja rezultatu "dokuments"
+     * dzesRezultatus() izdzes un izveido rezultatu dokumentu
+     * paradiLabakosRezultatus() izmanto labakierezultati() sakarto un tad izprinte labakos rezultatus. MAX rezultati ko parada ir lidz 5 labakie. 
      */
     
     public void rezultatuUzskaite(String speletaja_rezultats, String vards){
@@ -36,28 +36,28 @@ public class Rezultati {
             File rezultatuDokuments = new File(dokuments);
             
             if (rezultatuDokuments.createNewFile()) {
-                System.out.println("Rezultātu file izveidots: " + rezultatuDokuments.getName());
+                System.out.println("Rezultatu file izveidots: " + rezultatuDokuments.getName());
                 } else {
                     System.out.println("Rezultatu file atrasts.");
                     }
             }   
         catch (IOException e) {
-            System.out.println("Radās kļūme \"rezultatuUzskaite()\" > rezultatuDokuments\n");
+            System.out.println("Radas klume \"rezultatuUzskaite()\" > rezultatuDokuments\n");
             e.printStackTrace();
             }
-        // Pieraksta rezultātus ar doto formātu [vārds > mm:ss]
+        // Pieraksta rezultatus ar doto formatu [vards > mm:ss]
         try {
             FileWriter rezultatuPierakstitajs = new FileWriter(dokuments, true);
             
-            rezultatuPierakstitajs.write(vards + " > " + speletaja_rezultats + "\n"); // Var rasties potenciāla problēma, kur ievietots \n dokumentā ,kas neļauj tajā līnijā ierakstīt rezultātu.
+            rezultatuPierakstitajs.write(vards + " > " + speletaja_rezultats + "\n"); // Var rasties potenciala problema, kur ievietots \n dokumenta ,kas nelauj taja linija ierakstit rezultatu.
             rezultatuPierakstitajs.close();
             } 
         catch (IOException e) {
-            System.out.print("Radās kļūme \"rezultatuUzskaite()\" > rezultatuPierakstitajs\n");
+            System.out.print("Radas klume \"rezultatuUzskaite()\" > rezultatuPierakstitajs\n");
             e.printStackTrace();
             }
     }
-    // Izdzēš un izveido rezultātu dokumentu
+    // Izdzes un izveido rezultatu dokumentu
     public void dzesRezultatus() {
         try {
             File rezulDokuments = new File(dokuments); 
@@ -66,12 +66,12 @@ public class Rezultati {
             rezulDokuments.createNewFile();
             }
         catch (IOException e) {
-            System.out.println("Radās kļūme \"dzesRezultatus()\"\nRezultātu dokumentu nevar izveidot.\n");
+            System.out.println("Radas klume \"dzesRezultatus()\"\nRezultatu dokumentu nevar izveidot.\n");
             e.printStackTrace();
             }
     }        
         
-    // Sakārto rezultātus augošā secībā
+    // Sakarto rezultatus augosa seciba
     private void labakieRezultati() {
         try {
             File rezDokuments = new File(dokuments);
@@ -85,14 +85,14 @@ public class Rezultati {
             rezLasitajs.close();
             } 
         catch (FileNotFoundException e){
-            System.out.println("Radās kļūme \"labakieRezultati()\" > rezDokuments\nRezultātu dokumentu nevar atrast.\n");
+            System.out.println("Radas klume \"labakieRezultati()\" > rezDokuments\nRezultatu dokumentu nevar atrast.\n");
             e.printStackTrace();
             }
 
         int[] apstradatiRezultati = new int[visiRezultati.size()];
         int[] rezIndexAugSec = new int[visiRezultati.size()];
 
-        // Iegūst ms laiku no rezultātiem.  
+        // Iegust ms laiku no rezultatiem.  
         for (int i = 0; i < visiRezultati.size(); i++) {
 
             String laiks = visiRezultati.get(i);
@@ -106,12 +106,12 @@ public class Rezultati {
                 rezIndexAugSec[i] = i;
                 } 
             catch (StringIndexOutOfBoundsException e) {
-                System.out.println("Rezultāti nepareizi formatēti. Rezultātu dokumentā \"" + dokuments + "\" nevar atrasties tukšas līnijas.");
+                System.out.println("Rezultati nepareizi formateti. Rezultatu dokumenta \"" + dokuments + "\" nevar atrasties tuksas linijas.");
                 rezultatuFileKorekts = false;
                 break;
                 }  
             }
-        // Apstrādātos rezultātus sakārto augošā secībā
+        // Apstradatos rezultatus sakarto augosa seciba
         int n = apstradatiRezultati.length; 
         for (int i = 0; i < n-1; i++)
             { 
@@ -119,7 +119,7 @@ public class Rezultati {
                 { 
                 if (apstradatiRezultati[j] > apstradatiRezultati[j+1]) 
                     { 
-                    // samaina a[n] ar a [n+1] vietām ja a[n] > a[n +1]
+                    // samaina a[n] ar a [n+1] vietam ja a[n] > a[n +1]
                     int temp = apstradatiRezultati[j]; 
                     apstradatiRezultati[j] = apstradatiRezultati[j+1]; 
                     apstradatiRezultati[j+1] = temp;
@@ -137,26 +137,26 @@ public class Rezultati {
             }
     }
 
-    // Sakārto un tad izprintē labākos rezultātus (MAX 5)
+    // Sakarto un tad izprinte labakos rezultatus (MAX 5)
     public void paradiLabakosRezultatus(){
-        //Sakārto
+        //Sakarto
         labakieRezultati();
 
-        //Izprintē
+        //Izprinte
         if (rezultatuFileKorekts){
             if ( 0 < sakartotiAugSecRez.length && sakartotiAugSecRez.length < 5){
-                System.out.println((sakartotiAugSecRez.length) + " Ātrākie laiki.");
+                System.out.println((sakartotiAugSecRez.length) + " atrakie laiki.");
                 for (int i = 0; i < sakartotiAugSecRez.length; i++){
                     System.out.println((1 + i)+ ". " + sakartotiAugSecRez[i]);
                     }
                 } 
             else if (sakartotiAugSecRez.length >= 5){
-                System.out.print(5 + " Ātrākie laiki.\n");
+                System.out.print(5 + " atrakie laiki.\n");
                 for (int i = 0; i < 5; i++){
                 System.out.println((1 + i)+ ". " + sakartotiAugSecRez[i]);
                 } 
             } else {
-                System.out.print("Rezultāti nav atrasti!");
+                System.out.print("Rezultati nav atrasti!");
                 } 
             }
     }

@@ -16,10 +16,10 @@ public class Spele {
     private String apsleptaisVards2;
 
     /**
-     * @param apsleptaisVards1 vard1s! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
-     * @param slepenaisVards1 norāda apslēpto vārdu ,kas jātmin.
-     * @param apsleptaisVards2 vard2s! vārds kas spēlētājam jātmin no burtu jūkli esošo vārdu pirmajiem burtiem 
-     * @param slepenaisVards2 norāda apslēpto vārdu ,kas jātmin.
+     * @param apsleptaisVards1 vard1s! vards kas speletajam jatmin no burtu jukli esoso vardu pirmajiem burtiem 
+     * @param slepenaisVards1 norada apslepto vardu ,kas jatmin.
+     * @param apsleptaisVards2 vard2s! vards kas speletajam jatmin no burtu jukli esoso vardu pirmajiem burtiem 
+     * @param slepenaisVards2 norada apslepto vardu ,kas jatmin.
      */
 
     public Spele(String slepenaisVards1, String slepenaisVards2) {
@@ -28,12 +28,12 @@ public class Spele {
     }
 
     /**
-     * Publiskās metodes
-     * gameStartInput() iegūst spēlētāja vārdu
-     * startGame() sāk spēli
-     * guessName() kad atmin vārdus prasa atminēt no atminētajiem vārdiem apslēptu vārdu
-     * endGame() beidz spēli pasaka spēlētājam spēlēto laiku
-     * gameOption() piedāvā spēlētājam apskatīties labākos rezultātus
+     * Publiskas metodes
+     * gameStartInput() iegust speletaja vardu
+     * startGame() sak speli
+     * guessName() kad atmin vardus prasa atminet no atminetajiem vardiem apsleptu vardu
+     * endGame() beidz speli pasaka speletajam speleto laiku
+     * gameOption() piedava speletajam apskatities labakos rezultatus
      */
 
     public void gameStartInputs(){
@@ -42,25 +42,25 @@ public class Spele {
         String tempName;
         String choice;
 
-        System.out.print("Sveicināts spēletāj! \n");
-        System.out.print("Jūs spēlējat spēli Burtu Jūklis.\n"); 
-        System.out.print("Spēli veidoja komanda \"Masīvi sākas no viens\"\n");
+        System.out.print("Sveicinats speletaj! \n");
+        System.out.print("Jus spelejat speli Burtu Juklis.\n"); 
+        System.out.print("Speli veidoja komanda \"Masivi sakas no viens\"\n");
 
         do {
-            System.out.print("Lūdzu ievadiet savu vārdu ,lai var atzimēt rezultātus: ");
+            System.out.print("Ludzu ievadiet savu vardu ,lai var atzimet rezultatus: ");
             tempName = datuIevade.nextLine();
-            System.out.print("Vai ievadījāt vārdu pareizi? "  + tempName +"\n");
-            System.out.print("****** \nJ - Jā \nN - Nē \n");
+            System.out.print("Vai ievadijat vardu pareizi? "  + tempName +"\n");
+            System.out.print("****** \nJ - Ja \nN - Ne \n");
             choice = datuIevade.nextLine();
             } while (choice.equals("N"));
         
         playerName = new String(tempName);
         sp = new Speletajs(playerName);
 
-        System.out.print("Veiksmi spēlē " + playerName + "!\n\n");
+        System.out.print("Veiksmi spele " + playerName + "!\n\n");
     }
 
-    //Sāk spēli izveidu burtujuukli un sāk spēles min;e;sanas ciklu
+    //Sak speli izveidu burtujuukli un sak speles min;e;sanas ciklu
     public void startGame(){
         intface.x = bj.platums;
         intface.y = bj.garums;
@@ -72,59 +72,59 @@ public class Spele {
             sp.sakLaiks();
             intface.userInput(bj, ad, tb);
             } else {
-            System.out.print("Radās kļūme burtu jūkļa ģenerēšanā.");
+            System.out.print("Radas klume burtu jukla generesana.");
             }
     }
 
-    //Izprintē atminētos vārdus un prasa spēlētājam ievadīt apslēpto vārdu !!Garumzīmes nestrādā
+    //Izprinte atminetos vardus un prasa speletajam ievadit apslepto vardu !!Garumzimes nestrada
     public void guessName(){
         Scanner s = new Scanner(System.in);
 
-        System.out.print("Apsveicu atradāt visus apslēptos vārdus burtu jūklī! \n");
-        System.out.print("Tagad jums jātmin vārds ko veido atminēto vārdu sākuma burti! \n \n \n");
+        System.out.print("Apsveicu atradat visus apsleptos vardus burtu jukli! \n");
+        System.out.print("Tagad jums jatmin vards ko veido atmineto vardu sakuma burti! \n \n \n");
 
         String minejums;
 
         do {
-            System.out.print("Atminētie vārdi:\n");
+            System.out.print("Atminetie vardi:\n");
             
             ad.getAtminetieVardi();
             
             System.out.print("\n\n\n");
             
-            System.out.print("Kas ir apslēptais vārds?\nMINĒJUMU JĀVEIC BEZ GARUMZĪMĒM!\n");
+            System.out.print("Kas ir apsleptais vards?\nMINEJUMU JaVEIC BEZ GARUMZIMEM!\n");
             minejums = s.nextLine();
             if ((minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))||(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase()))){
-                System.out.println("Uzminējāt!");
+                System.out.println("Uzminejat!");
                 } else {
-                System.out.print("Nepareizs minējums. Mēģiniet vēlreiz! \n\n");
+                System.out.print("Nepareizs minejums. Meginiet velreiz! \n\n");
                 }
             
             } while (!(minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))&&!(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase())));
         }
     
-    //Pabeidz spēli, pasaka spēlētājam spēlēto laiku
+    //Pabeidz speli, pasaka speletajam speleto laiku
     public void endGame(){
         sp.beiguLaiks();
         System.out.print("Malacis " + playerName + "!\n");
-        System.out.print("Spēli laiks: " + sp.speletaisLaiks + "\n");
+        System.out.print("Speli laiks: " + sp.speletaisLaiks + "\n");
     }
 
-    //Dod spēlētājam izvēli apskatīties labākos rezultātus.
+    //Dod speletajam izveli apskatities labakos rezultatus.
     public void gameOptions(){
         Scanner s = new Scanner(System.in);
         
-        System.out.print("Vai vēlaties redzēt labākos rezultātus?" + "\n");
-        System.out.print("** \nJ - Jā \nN - Nē \n");
+        System.out.print("Vai velaties redzet labakos rezultatus?" + "\n");
+        System.out.print("** \nJ - Ja \nN - Ne \n");
         String izvele = s.nextLine();
 
         izvele = izvele.toUpperCase();
         
         if (izvele.equals("J")){
             rez.paradiLabakosRezultatus();
-            System.out.print("\n\n\nSpēles beigas.");
+            System.out.print("\n\n\nSpeles beigas.");
             } else {
-            System.out.print("Spēles beigas.");
+            System.out.print("Speles beigas.");
             }
         
             s.close();

@@ -11,14 +11,14 @@ public class Lasitajs {
     private String dokuments = "Dotie_Vardi.txt";
     private String[] vardi;
 
-    /** @param vardiLst nolasītie vārdi ArrayList formātā ,kas tiks apstrādāti.
-    *   @param dokuments doto vārdu dokumenta nosaukums.
+    /** @param vardiLst nolasitie vardi ArrayList formata ,kas tiks apstradati.
+    *   @param dokuments doto vardu dokumenta nosaukums.
      */
 
     /*
-    * Publiski pieejamās metodēs. 
+    * Publiski pieejamas metodēs. 
     * Jaizmanto metode lasiVardus()
-    * Pārējo var ignorēt.
+    * Parējo var ignorēt.
     */
     public static void main(String[] args) {
       Lasitajs ls = new Lasitajs();
@@ -28,8 +28,8 @@ public class Lasitajs {
     public String[] lasiVardus() {
       
       /*
-        Metode atrod ,ja ir doto vārdu dokumentu un nolasa.
-        Atgriež String[] vardi. 
+        Metode atrod ,ja ir doto vardu dokumentu un nolasa.
+        Atgriez String[] vardi. 
       */
       
       try {
@@ -48,7 +48,7 @@ public class Lasitajs {
               }
           }
       catch (FileNotFoundException e) {
-          System.out.println("Doto vārdu dokuments \"" + dokuments + "\" netika atrasts!\n\n\n");          
+          System.out.println("Doto vardu dokuments \"" + dokuments + "\" netika atrasts!\n\n\n");          
           }
       return vardi;
     }

@@ -3,7 +3,7 @@ package burtuJuuklis;
 public class Tabula {
   
     public void printTabula(char[][] tabula) {
-        for (int i = 0; i<tabula.length; i++) { // šie cikli izprintē masīvu
+        for (int i = 0; i<tabula.length; i++) { // sie cikli izprinte masivu
             if(i == 0){
                 System.out.print("   ");
             }else if (i < 10){

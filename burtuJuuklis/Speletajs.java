@@ -13,9 +13,9 @@ public class Speletajs {
     private Rezultati rez = new Rezultati();
     
     /**
-     * @param speltais_laiks glabā spēles laiku String datu tipā formāts mm:ss
-     * @param beiguLaiks glabā ms laiku kad spēle tika beigta
-     * @param sakumaLaiks glaba ms laiku kad spēle tika sākta
+     * @param speltais_laiks glaba speles laiku String datu tipa formats mm:ss
+     * @param beiguLaiks glaba ms laiku kad spele tika beigta
+     * @param sakumaLaiks glaba ms laiku kad spele tika sakta
      */
 
     public Speletajs(String vards) {
@@ -23,9 +23,9 @@ public class Speletajs {
       }
 
     /**
-     * Publsiki izmantotās metodes.
-     * sak_laiks() uzņem spēles sākuma laiku
-     * beigu_laiks() uzņem spēles beigu laiku, aprēķina spēles laiku, pieraksta rezultātu
+     * Publsiki izmantotas metodes.
+     * sak_laiks() uznem speles sakuma laiku
+     * beigu_laiks() uznem speles beigu laiku, apreķina speles laiku, pieraksta rezultatu
      */
     public void sakLaiks(){
         sakumaLaiks = System.currentTimeMillis();
