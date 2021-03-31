@@ -1,6 +1,3 @@
-
-package burtuJuuklis;
-
 public class Vertibas { //klase info par vardu atrasanas vietam glababsanai
     private char[] vards;
     private int virziens;

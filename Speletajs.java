@@ -1,5 +1,3 @@
-package burtuJuuklis;
-
 import java.text.SimpleDateFormat;
 
 public class Speletajs {

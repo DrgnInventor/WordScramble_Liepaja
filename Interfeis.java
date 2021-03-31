@@ -1,5 +1,3 @@
-package burtuJuuklis;
-
 import java.util.Scanner;
 
 public class Interfeis {

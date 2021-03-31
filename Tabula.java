@@ -1,5 +1,3 @@
-package burtuJuuklis;
-
 public class Tabula {
   
     public void printTabula(char[][] tabula) {
