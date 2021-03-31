@@ -115,7 +115,7 @@ public class BurtuJuklis {
     if(tabulaDer){
         for(int i = 0; i < vardiMasiva.length; i++){
             burtiMasiva = atseviskieBurti(vardiMasiva[i]); 
-            int skaititajs = 0; //skaita, cik reizes izmēģina atrast vardam vietu
+            int skaititajs = 0; //skaita, cik reizes izmegina atrast vardam vietu
             do{
                 int virziens = r.nextInt(3);
                 int lauks_kolona = (int)(Math.random()*(platums - 1) + 1); 
@@ -128,7 +128,7 @@ public class BurtuJuklis {
                     skaititajs++;
                     tabulaDer = false;
                 }
-            }while(skaititajs < 100000 && !tabulaDer); //ja 1000 reizēs nevar atrast vietu, pieņem, ka vietas nav
+            }while(skaititajs < 100000 && !tabulaDer); //ja 10000 reizes nevar atrast vietu, pienem, ka vietas nav
         }
     }
     adr.putNeatminetieVardi(); //izveido rindu kur uzglabat neatminetos vardus
@@ -150,7 +150,7 @@ public class BurtuJuklis {
     return burtuJuklis;
     }
   
-    public void varduDzesana(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas, Adreses a){ //parvērš burtus uz lielajiem burtiem
+    public void varduDzesana(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas, Adreses a){ //parvers burtus uz lielajiem burtiem
         
         int kolona_sakums = a.getSkaitlis(burts_sakums);
         int kolona_beigas = a.getSkaitlis(burts_beigas);

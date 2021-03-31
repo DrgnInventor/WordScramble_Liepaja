@@ -10,12 +10,12 @@ public class Lasitajs {
     private String dokuments = "Dotie_Vardi.txt";
     private String[] vardi;
 
-    /** @param vardiLst nolasitie vardi ArrayList formata ,kas tiks apstradati.
+    /** @param vardiLst nolasitie vardi ArrayList formata, kas tiks apstradati.
     *   @param dokuments doto vardu dokumenta nosaukums.
      */
 
     /*
-    * Publiski pieejamas metodēs. 
+    * Publiski pieejamas metodes. 
     * Jaizmanto metode lasiVardus()
     * Parējo var ignorēt.
     */
@@ -27,7 +27,7 @@ public class Lasitajs {
     public String[] lasiVardus() {
       
       /*
-        Metode atrod ,ja ir doto vardu dokumentu un nolasa.
+        Metode atrod, ja ir doto vardu dokumentu un nolasa.
         Atgriez String[] vardi. 
       */
        File Dotie_Vardi = new File(dokuments);

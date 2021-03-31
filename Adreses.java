@@ -14,7 +14,7 @@ public class Adreses {
         rindaVertibam = new ArrayList<>();
         atminetieVardi = new ArrayList<>();
         neatminetieVardi = new ArrayList<>();
-        for(int i = 0; i < 26; i++){ //uztaisa mapu, kur intiem 1- 26 atbilst alfabeta burts
+        for(int i = 0; i < 26; i++){ //uztaisa mapu, kur intiem 1 - 26 atbilst alfabeta burts
             alfabets.put(i, (char)(i + 17 + '0'));
         }
         

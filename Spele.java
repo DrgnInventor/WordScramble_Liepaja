@@ -14,7 +14,7 @@ public class Spele {
 
     /**
      * @param apsleptaisVards vards kas speletajam jatmin no burtu jukli esoso vardu pirmajiem burtiem 
-     * @param slepenaisVards norada apslepto vardu ,kas jatmin.
+     * @param slepenaisVards norada apslepto vardu, kas jaatmin.
      */
 
     public Spele(String slepenaisVards) {
