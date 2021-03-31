@@ -77,13 +77,14 @@ public class Spele {
     public void guessName(){
         Scanner s = new Scanner(System.in);
 
-        System.out.print("Apsveicu atradat visus apsleptos vardus burtu jukli! \n");
-        System.out.print("Tagad jums jatmin vards ko veido atmineto vardu sakuma burti! \n \n \n");
+        System.out.print("\nApsveicu atradat visus apsleptos vardus burtu jukli! \n");
+        System.out.print("Tagad jums jatmin vards ko veido atmineto vardu sakuma burti! \n\n\n\n");
 
         String minejums;
 
         do {
-            System.out.print("Atminetie vardi:\n");
+            System.out.println("Minejums javeic bez garumzimem!");
+            System.out.println("Atminetie vardi:\n");
             
             ad.getAtminetieVardi();
             
