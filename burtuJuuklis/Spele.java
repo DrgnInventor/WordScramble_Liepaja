@@ -51,10 +51,10 @@ public class Spele {
             tempName = datuIevade.nextLine();
             System.out.print("Vai ievadijat vardu pareizi? "  + tempName +"\n");
             System.out.print("****** \nJ - Ja \nN - Ne \n");
-            choice = datuIevade.nextLine();
+            choice = datuIevade.nextLine().toUpperCase().substring(0,1);
             } while (choice.equals("N"));
         
-        playerName = new String(tempName);
+        playerName = tempName;
         sp = new Speletajs(playerName);
 
         System.out.print("Veiksmi spele " + playerName + "!\n\n");
@@ -92,7 +92,7 @@ public class Spele {
             
             System.out.print("\n\n\n");
             
-            System.out.print("Kas ir apsleptais vards?\nMINEJUMU JaVEIC BEZ GARUMZIMEM!\n");
+            System.out.print("Kas ir apsleptais vards?\nMINEJUMU JAVEIC BEZ GARUMZIMEM!\n");
             minejums = s.nextLine();
             if ((minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))||(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase()))){
                 System.out.println("Uzminejat!");
@@ -118,7 +118,7 @@ public class Spele {
         System.out.print("** \nJ - Ja \nN - Ne \n");
         String izvele = s.nextLine();
 
-        izvele = izvele.toUpperCase();
+        izvele = izvele.toUpperCase().substring(0,1);
         
         if (izvele.equals("J")){
             rez.paradiLabakosRezultatus();

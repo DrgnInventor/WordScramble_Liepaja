@@ -12,25 +12,32 @@ public class Adreses {
     private Map<Integer, Character> alfabets;
     public List<Vertibas> rindaVertibam;
     public int kartasNr;
-    public List<String> atminetieVardi;
+    public List<Vertibas> atminetieVardi;
+    public List<String> neatminetieVardi;
     public Adreses(){
-        alfabets = new HashMap();
-        rindaVertibam = new ArrayList();
-        atminetieVardi = new ArrayList();
+        alfabets = new HashMap<>();
+        rindaVertibam = new ArrayList<>();
+        atminetieVardi = new ArrayList<>();
+        neatminetieVardi = new ArrayList<>();
         for(int i = 0; i < 26; i++){ //uztaisa mapu, kur intiem 1- 26 atbilst alfabeta burts
             alfabets.put(i, (char)(i + 17 + '0'));
         }
         
     }
-    public void getNeatminetieVardi(){ //izprinte neatminetos vardus no vertibu rindas
+    public void putNeatminetieVardi(){ //izveido rindu kur uzglabat neatminetos vardus
         for(int i = 0; i < rindaVertibam.size(); i++){
-            System.out.println(rindaVertibam.get(i).getVardsString());
+            neatminetieVardi.add(rindaVertibam.get(i).getVardsString());
+        }
+    }
+    public void getNeatminetieVardi(){ //izprinte neatminetos vardus
+        for(int i = 0; i < neatminetieVardi.size(); i++){
+            System.out.println(neatminetieVardi.get(i));
         }
     }
     public boolean checkAtminetieVardi(String s){ //parbauda vai vards neatkartojas
         boolean tr = true;
         for(int i = 0; i < atminetieVardi.size(); i++){
-            if(atminetieVardi.get(i).equals(s)){
+            if(atminetieVardi.get(i).getVardsString().equals(s)){
                 tr = false;
                 break;
             }
@@ -40,7 +47,7 @@ public class Adreses {
     public void getAtminetieVardi(){ //izprinte atminetos vardus
         int size = atminetieVardi.size() - 1;
         for(int i = size; i >= 0; i--){
-            System.out.println(atminetieVardi.get(i));
+            System.out.println(atminetieVardi.get(i).getVardsString());
         }
     }
     public char getBurts(int skaitlis){ //atgriez atbilstoso burtu padotajam skaitlim
@@ -80,16 +87,26 @@ public class Adreses {
         int kolona_sakums = getSkaitlis(burts_sakums);
         int kolona_beigas = getSkaitlis(burts_beigas);
         boolean tr = true;
+        
         for(int i = 0; i < rindaVertibam.size(); i++){
             int sakums_rinda = rindaVertibam.get(i).getSakumsRinda();
             int sakums_kolona = rindaVertibam.get(i).getSakumsKolona();
             int beigas_rinda_list = rindaVertibam.get(i).getBeigasRinda();
             int beigas_kolona_list = rindaVertibam.get(i).getBeigasKolona();
             if(sakums_rinda == rinda_sakums && sakums_kolona == kolona_sakums && beigas_rinda_list == rinda_beigas && beigas_kolona_list == kolona_beigas){
-                tr = true;
-                kartasNr = i;
-                break;
-            }else tr = false;
+                if(checkAtminetieVardi(rindaVertibam.get(i).getVardsString())){
+                    tr = true;
+                    kartasNr = i;
+                    break;
+                }else{
+                    tr = false;
+                    System.out.println("\nSo vardu tu jau uzmineji!");
+                    break;
+                }
+            }else{
+                tr = false;
+                
+            }
         }
         return tr;
     }

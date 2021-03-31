@@ -134,6 +134,7 @@ public class BurtuJuklis {
             }while(skaititajs < 100000 && !tabulaDer); //ja 1000 reizēs nevar atrast vietu, pieņem, ka vietas nav
         }
     }
+    adr.putNeatminetieVardi(); //izveido rindu kur uzglabat neatminetos vardus
     if(daudzReizu == true && tabulaDer == true){    
         for(int i = 0; i < platums; i++){ // uztaisa identifikatorus no alfabeta burtiem
             burtuJuklis[0][i] = (char)(i + 17 + '0');
