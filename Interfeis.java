@@ -62,7 +62,7 @@ public class Interfeis {
             }
 
         } while (i != 0);
-        System.out.println("Tu uzvareji!");
+        System.out.println("Tu atradi visus vardus!");
 }
 
     public boolean checkInput(char burts, int skaitlis) {
