@@ -104,7 +104,7 @@ public class Spele {
     public void endGame(){
         sp.beiguLaiks();
         System.out.print("Malacis " + playerName + "!\n");
-        System.out.print("Speli laiks: " + sp.speletaisLaiks + "\n");
+        System.out.print("Speles laiks: " + sp.speletaisLaiks + "\n");
     }
 
     //Dod speletajam izveli apskatities labakos rezultatus.
