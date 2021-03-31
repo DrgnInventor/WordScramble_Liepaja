@@ -58,6 +58,9 @@ public class Interfeis {
                 i--; 
             } else {
                 System.out.println("\nNav pareizi, megini velreiz!\n");
+                System.out.println("Tev vel jaatrod:\n");
+                adr.getNeatminetieVardi(); //izprinte neatminetos vardus
+                System.out.println();
                 t.printTabula(jk.burtuJuklis); //izprinte tabulu
             }
 
