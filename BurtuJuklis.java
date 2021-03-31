@@ -8,12 +8,12 @@ public class BurtuJuklis {
     public int garums;
     public boolean tabulaDer = true; //glaba vai tabula ir riktiga izmēra
   public BurtuJuklis(int n, int m){
-    platums = m;
+    platums = m + 1;
     garums = n;
     burtuJuklis = new char[garums][platums];
   }
-  
-  
+
+
   public char[] atseviskieBurti(String s){ //sadali stringu characteros un izveido masivu
     char burts;
     burti = new char[s.length()];
