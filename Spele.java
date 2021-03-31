@@ -78,7 +78,7 @@ public class Spele {
         Scanner s = new Scanner(System.in);
 
         System.out.print("Apsveicu atradat visus apsleptos vardus burtu jukli! \n");
-        System.out.print("Tagad jums jatmin vards ko veido atmineto vardu sakuma burti! \n \n \n");
+        System.out.print("Tagad jums jaatmin vards ko veido atmineto vardu sakuma burti! \n \n \n");
 
         String minejums;
 
