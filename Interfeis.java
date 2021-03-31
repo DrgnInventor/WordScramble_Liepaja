@@ -67,7 +67,6 @@ public class Interfeis {
 
     public boolean checkInput(char burts, int skaitlis) {
             boolean valid = true;
-            //printTabula?()
             if (!(Character.isLetter(burts))) { //parbauda vai pirma rakstzime koordinata ir burts
                     System.out.println("Pirmajai rakstzimei jabut burtam.");
                     valid = false;
