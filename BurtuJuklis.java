@@ -106,12 +106,12 @@ public class BurtuJuklis {
     Random r = new Random();
     boolean daudzReizu = true;
     if(platums > 26){ // nevar vairak par 26, jo alfabeta nav tik daudz burtu
-        System.out.println("pls no");
+        System.out.println("Alfabeta nav tik daudz burtu");
         tabulaDer = false;
     }
     if(platums <= 0 || garums <= 0){ //parbauda vai dotie parametri nav 0 vai negativi
         tabulaDer = false;
-        System.out.println("ludzu ievadi normalus skaitlus");
+        System.out.println("Platumam/Garumam jabut lielakam par 0 neieskaitot");
     }
     if(tabulaDer){
         for(int i = 0; i < vardiMasiva.length; i++){
@@ -146,7 +146,7 @@ public class BurtuJuklis {
         }
     }else{
         tabulaDer = false;
-        System.out.println("slikta tabula");
+        System.out.println("Klume tabulas generacija");
     }
     return burtuJuklis;
     }
