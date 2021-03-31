@@ -2,7 +2,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ *
+ * @author darta
+ */
 public class Adreses {
     private Map<Integer, Character> alfabets;
     public List<Vertibas> rindaVertibam;
@@ -104,5 +107,7 @@ public class Adreses {
             }
         }
         return tr;
-    }  
+    }
+    
+   
 }

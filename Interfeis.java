@@ -51,22 +51,26 @@ public class Interfeis {
                 adr.atminetieVardi.add(adr.rindaVertibam.get(kartas_nr)); //pievieno atmineto vardu atmineto vardu rindai
                 System.out.println("\nPareizs vards!\n");
                 System.out.println("Tev vel jaatrod:\n");
-                adr.neatminetieVardi.remove(adr.rindaVertibam.get(kartas_nr).getVardsString()); //nonem vardu no atminamo nosaukumu saraksta
+                adr.neatminetieVardi.remove(adr.rindaVertibam.get(kartas_nr).getVardsString());
                 adr.getNeatminetieVardi(); //izprinte neatminetos vardus
                 System.out.println();
                 t.printTabula(jk.burtuJuklis); //izprinte tabulu
                 i--; 
             } else {
                 System.out.println("\nNav pareizi, megini velreiz!\n");
-                t.printTabula(jk.burtuJuklis); //izprinte tabulu
+                System.out.println("Tev vel jaatrod:\n");
+                adr.getNeatminetieVardi(); //izprinte neatminetos vardus
+                System.out.println();
+                t.printTabula(jk.burtuJuklis); //izprinte tabul
             }
 
         } while (i != 0);
-        System.out.println("Tu atradi visus vardus!");
+        System.out.println("Tu uzvareji!");
 }
 
     public boolean checkInput(char burts, int skaitlis) {
             boolean valid = true;
+            //printTabula?()
             if (!(Character.isLetter(burts))) { //parbauda vai pirma rakstzime koordinata ir burts
                     System.out.println("Pirmajai rakstzimei jabut burtam.");
                     valid = false;
