@@ -48,12 +48,13 @@ public class Interfeis {
             if (adr.salidzinatKoordinates(viensburts, viensskaitlis, diviburts, diviskaitlis)){ //parbauda vai ievaditas koordinates ir pareizas
                 int kartas_nr = adr.kartasNr; //koordinasu indekss vertibu rinda
                 jk.varduDzesana(viensburts, viensskaitlis, diviburts, diviskaitlis, adr); //parvers vardus uz lielajiem burtiem
-                t.printTabula(jk.burtuJuklis); //izprinte tabulu
                 adr.atminetieVardi.add(adr.rindaVertibam.get(kartas_nr)); //pievieno atmineto vardu atmineto vardu rindai
                 System.out.println("\nPareizs vards!\n");
                 System.out.println("Tev vel jaatrod:\n");
                 adr.neatminetieVardi.remove(adr.rindaVertibam.get(kartas_nr).getVardsString());
                 adr.getNeatminetieVardi(); //izprinte neatminetos vardus
+                System.out.println();
+                t.printTabula(jk.burtuJuklis); //izprinte tabulu
                 i--; 
             } else {
                 System.out.println("\nNav pareizi, megini velreiz!\n");

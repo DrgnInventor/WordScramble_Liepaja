@@ -62,6 +62,9 @@ public class Spele {
         char[][] brtj = bj.rezgaBuvesana(ls.lasiVardus(), ad);
 
         if(bj.tabulaDer){
+            System.out.println("Tev jaatrod:\n");
+            ad.getNeatminetieVardi();
+            System.out.println();
             tb.printTabula(brtj);
             sp.sakLaiks();
             intface.userInput(bj, ad, tb);
