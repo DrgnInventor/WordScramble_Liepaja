@@ -44,7 +44,7 @@ public class Spele {
             System.out.print("Ludzu ievadiet savu vardu: ");
             tempName = datuIevade.nextLine();
             System.out.print("Vai ievadijat vardu pareizi? "  + tempName +"\n");
-            System.out.print("****** \nJ - Ja \nN - Ne \n): ");
+            System.out.print("****** \nJ - Ja \nN - Ne \n> ");
             choice = datuIevade.nextLine().toUpperCase().substring(0,1);
             } while (choice.equals("N"));
         
@@ -89,7 +89,7 @@ public class Spele {
             
             System.out.print("\n\n\n");
             
-            System.out.print("Kas ir apsleptais vards?\n): ");
+            System.out.print("Kas ir apsleptais vards?\n> ");
             minejums = s.nextLine().toLowerCase();
             if (minejums.equals(apsleptaisVards)){
                 System.out.println("Uzminejat!");
@@ -112,7 +112,7 @@ public class Spele {
         Scanner s = new Scanner(System.in);
         
         System.out.print("Vai velaties redzet labakos rezultatus?" + "\n");
-        System.out.print("** \nJ - Ja \nN - Ne \n");
+        System.out.print("** \nJ - Ja \nN - Ne \n> ");
         String izvele = s.nextLine();
 
         izvele = izvele.toUpperCase().substring(0,1);
