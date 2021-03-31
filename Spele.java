@@ -36,15 +36,15 @@ public class Spele {
         String tempName;
         String choice;
 
-        System.out.print("Sveicinats speletaj! \n");
+        System.out.print("Sveicinats, Speletaj! \n");
         System.out.print("Jus spelejat speli Burtu Juklis.\n"); 
-        System.out.print("Speli veidoja komanda \"Masivi sakas no viens\"\n");
+        System.out.print("Speli veidoja komanda \"Masivi sakas no 1\"\n");
 
         do {
-            System.out.print("Ludzu ievadiet savu vardu ,lai var atzimet rezultatus: ");
+            System.out.print("Ludzu ievadiet savu vardu: ");
             tempName = datuIevade.nextLine();
             System.out.print("Vai ievadijat vardu pareizi? "  + tempName +"\n");
-            System.out.print("****** \nJ - Ja \nN - Ne \n");
+            System.out.print("****** \nJ - Ja \nN - Ne \n): ");
             choice = datuIevade.nextLine().toUpperCase().substring(0,1);
             } while (choice.equals("N"));
         
@@ -54,7 +54,7 @@ public class Spele {
         System.out.print("Veiksmi spele " + playerName + "!\n\n");
     }
 
-    //Sak speli izveidu burtujuukli un sak speles min;e;sanas ciklu
+    //Sak speli izveidu burtujuukli un sak speles minesanas ciklu
     public void startGame(){
         intface.x = bj.platums;
         intface.y = bj.garums;
@@ -89,7 +89,7 @@ public class Spele {
             
             System.out.print("\n\n\n");
             
-            System.out.print("Kas ir apsleptais vards?\nMINEJUMU JAVEIC BEZ GARUMZIMEM!\n");
+            System.out.print("Kas ir apsleptais vards?\n): ");
             minejums = s.nextLine().toLowerCase();
             if (minejums.equals(apsleptaisVards)){
                 System.out.println("Uzminejat!");

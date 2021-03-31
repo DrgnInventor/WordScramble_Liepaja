@@ -51,14 +51,14 @@ public class Interfeis {
                 adr.atminetieVardi.add(adr.rindaVertibam.get(kartas_nr)); //pievieno atmineto vardu atmineto vardu rindai
                 System.out.println("\nPareizs vards!\n");
                 System.out.println("Tev vel jaatrod:\n");
-                adr.neatminetieVardi.remove(adr.rindaVertibam.get(kartas_nr).getVardsString());
+                adr.neatminetieVardi.remove(adr.rindaVertibam.get(kartas_nr).getVardsString()); //nonem vardu no atminamo nosaukumu saraksta
                 adr.getNeatminetieVardi(); //izprinte neatminetos vardus
                 System.out.println();
                 t.printTabula(jk.burtuJuklis); //izprinte tabulu
                 i--; 
             } else {
                 System.out.println("\nNav pareizi, megini velreiz!\n");
-                t.printTabula(jk.burtuJuklis); //izprinte tabul
+                t.printTabula(jk.burtuJuklis); //izprinte tabulu
             }
 
         } while (i != 0);
