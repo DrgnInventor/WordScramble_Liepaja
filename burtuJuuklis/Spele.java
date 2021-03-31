@@ -12,19 +12,15 @@ public class Spele {
     private Interfeis intface = new Interfeis();
     private Rezultati rez = new Rezultati();
     private static String playerName;
-    private String apsleptaisVards1;
-    private String apsleptaisVards2;
+    private String apsleptaisVards;
 
     /**
-     * @param apsleptaisVards1 vard1s! vards kas speletajam jatmin no burtu jukli esoso vardu pirmajiem burtiem 
-     * @param slepenaisVards1 norada apslepto vardu ,kas jatmin.
-     * @param apsleptaisVards2 vard2s! vards kas speletajam jatmin no burtu jukli esoso vardu pirmajiem burtiem 
-     * @param slepenaisVards2 norada apslepto vardu ,kas jatmin.
+     * @param apsleptaisVards vards kas speletajam jatmin no burtu jukli esoso vardu pirmajiem burtiem 
+     * @param slepenaisVards norada apslepto vardu ,kas jatmin.
      */
 
-    public Spele(String slepenaisVards1, String slepenaisVards2) {
-        this.apsleptaisVards1 = slepenaisVards1;
-        this.apsleptaisVards2 = slepenaisVards2;
+    public Spele(String slepenaisVards) {
+        this.apsleptaisVards = slepenaisVards.toLowerCase();
     }
 
     /**
@@ -93,14 +89,14 @@ public class Spele {
             System.out.print("\n\n\n");
             
             System.out.print("Kas ir apsleptais vards?\nMINEJUMU JAVEIC BEZ GARUMZIMEM!\n");
-            minejums = s.nextLine();
-            if ((minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))||(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase()))){
+            minejums = s.nextLine().toLowerCase();
+            if (minejums.equals(apsleptaisVards)){
                 System.out.println("Uzminejat!");
                 } else {
                 System.out.print("Nepareizs minejums. Meginiet velreiz! \n\n");
                 }
             
-            } while (!(minejums.toLowerCase().equals(apsleptaisVards1.toLowerCase()))&&!(minejums.toLowerCase().equals(apsleptaisVards2.toLowerCase())));
+            } while (!(minejums.equals(apsleptaisVards)));
         }
     
     //Pabeidz speli, pasaka speletajam speleto laiku
