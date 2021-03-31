@@ -78,7 +78,7 @@ public class Adreses {
     }
     
     public boolean salidzinatKoordinates(char burts_sakums, int rinda_sakums, char burts_beigas, int rinda_beigas){
-        //salīdzina dotās koordinātas ar tām, kas vērtību rindā, atgriež true or false atbilstoši
+        //salidzina dotas koordinatas ar tam, kas vertibu rinda, atgriez true or false atbilstosi
         int kolona_sakums = getSkaitlis(burts_sakums);
         int kolona_beigas = getSkaitlis(burts_beigas);
         boolean tr = true;
