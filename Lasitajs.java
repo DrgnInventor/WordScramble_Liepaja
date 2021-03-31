@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,9 +30,8 @@ public class Lasitajs {
         Metode atrod ,ja ir doto vardu dokumentu un nolasa.
         Atgriez String[] vardi. 
       */
-      
+       File Dotie_Vardi = new File(dokuments);
       try {
-            File Dotie_Vardi = new File(dokuments);
             Scanner Lasiitajs = new Scanner(Dotie_Vardi);
 
             while (Lasiitajs.hasNextLine()) {
@@ -46,7 +46,15 @@ public class Lasitajs {
               }
           }
       catch (FileNotFoundException e) {
-          System.out.println("Doto vardu dokuments \"" + dokuments + "\" netika atrasts!\n\n\n");          
+          System.out.println("Doto vardu dokuments \"" + dokuments + "\" netika atrasts!\n\n\n");
+          System.out.println("Dokuments tiks izveidots un programa termineta. Ludzu ievadied vardus dokumenta \"" + dokuments + "\"" );
+          try {
+            Dotie_Vardi.createNewFile();
+          } catch (IOException e1) {
+            System.out.println("Klume dokumenta izveide. lasiVardus() Error IOException");
+            e.printStackTrace();  
+          }
+          System.exit(0);         
           }
       return vardi;
     }
